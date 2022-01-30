@@ -1,0 +1,83 @@
+{%extends 'base.html'%}
+{%block content%}
+{%load static%}
+<section>
+<div class="product-page-hero" style="margin-top:50px;">
+    <div class="container" style="padding-top:60px; padding-bottom:20px;">
+    <div class="row">
+
+
+    <div class="col-md-3 col-xs-6" >
+    <img class="product-img-single" src="{{book.image.url}}" />
+
+    </div>
+
+    <div class="col-md-5 col-xs-6" style="margin-top:20px">
+
+        <div class="product-card">
+        <h3 class="product-title"> {{book.title}} </h3>
+        <p class="product-cat"> Category: {{book.category}} </p>
+            <p class="product-cat"> Author: {{book.author}} </p>
+            <p class="product-cat"> Sock: {{book.stocks}} </p>
+        <div class="row">
+            <div class="product-price-custom col-md-2" style="margin-bottom: 8px;">  <p class="product-price text-left">
+                {{book.price}}</p></div>
+            <div class="col-md-1"> <input class="form-control search-input mr-sm-2 ms-left" type="search" placeholder="1" aria-label="1"/> </div>
+        </div>
+            {% if book.stocks <= 0%}
+              <button class="product-buy-button btn-disabled"> Out of Stock</button>
+              {%elif book.stocks_available is False%}
+               <h3 class="color-red">Product Not Available</h3>
+
+              {% else %}
+               <button class="product-buy-button"> Buy Now</button>
+              {%endif%}
+
+
+
+        </div>
+    </div>
+        </div>
+
+    </div>
+</div>
+</section>
+
+<div class="container" style="margin-top:60px;">
+    <div clas="row">
+    <h4> Summary: </h4>
+    <p class="product-des"> {{book.description}}.</p>
+
+    </div></div>
+<div class="container" style="margin-top:70px;">
+    <div class="row text-center">
+    <h4 style="
+    margin-bottom: 33px;
+    align-items: center;"> Related Books </h4>
+
+    </div>
+
+    <div class="product container">
+    <div class="row">
+        {%for related_book in related_books%}
+         <div class="product-box col-md-2 col-sm-6">
+              <a class="text-decoration-none" href="/book/{{related_book.slug}}">
+        <img class="product-img" src="{{related_book.image.url}}"/>
+            <h3 class="book-title">{{related_book.title}} </h3>
+            <p class="book-price"><b>{{related_book.price}}</b></p>
+
+            <button class="btn btn-custom"> Buy Now </button>
+
+
+
+        </a></div>
+
+
+
+ {%endfor%}
+
+
+
+</div></div></div>
+
+{%endblock content%}

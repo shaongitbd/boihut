@@ -1,0 +1,473 @@
+/* Warning do not copy part of the website. This website was made as first year project by Rubaiyat Sha. Website was designed in figma and was developed in django from scrach. I have spend over 100 hours coding this website so please don't copy. */
+
+
+.header-last{
+position:relative;
+justify-content: center;
+top: 102px;
+background: #2C2B2B;
+box-shadow: 0px 2px 0px rgba(53, 50, 50, 0.25);
+height:46px;
+
+
+
+}
+
+
+.navbar-zero{
+    position: absolute;
+    padding-bottom: 42px;
+    width: 100%;
+    /*height: 117px;*/
+    /*height: 139px;*/
+    padding-bottom: 76px;
+    left: 0px;
+    top: 0px;
+    background: #18191A;
+    opacity: 0.99;
+    box-shadow: 0px 4px 2px 3px rgb(160 160 158 / 24%);
+
+}
+
+
+
+a.nav-link{
+
+
+font-family: Poppins;
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 21px;
+
+
+
+color: rgba(239, 239, 239, 0.9);
+
+}
+
+.fa-bars{
+padding-right:3px;
+height: 17.4px;
+
+width: 20 px;
+
+border-radius: 0px;
+
+}
+
+.navbar-brand{
+  position: absolute;
+  left: 50%;
+   margin-left: -50px !important;
+  display: block;
+
+}
+
+.fa-address-book{
+padding-right:3px;
+height: 20px;
+width: 20px;
+
+border-radius: 0px;
+
+
+
+}
+.fa-home{
+
+height: 17.4px;
+padding-right:3px;
+width: 23 px;
+border-radius: 0px;
+
+}
+
+.form-control {
+
+background: #FFFEFE;
+border: 2px solid #FFFFFF;
+box-sizing: border-box;
+box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.25);
+border-radius: 28px;
+padding: 4px;
+padding-top: -0.605rem;
+padding-left: 1rem;
+padding-right: 3rem;
+
+}
+
+.fa-search{
+height: 20px;
+width: 22px;
+border-radius: 0px;
+color: #FFFEFE;
+
+}
+.fa-user{
+height: 19px;
+width: 19px;
+border-radius: 0px;
+
+}
+
+.custom-search-button{
+width: 52px;
+height: 37px;
+background: #4E4C4C;
+
+}
+
+.search-bar{
+position:absolute;
+
+}
+
+.book-price{
+width: 47px;
+height: 13px;
+font-family: Open Sans;
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+line-height: 22px;
+
+
+
+letter-spacing: -0.045em;
+
+color: #222222;
+}
+
+.book-title{
+padding-top: 13px;
+font-family: roboto;
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 22px;
+letter-spacing: -0.045em;
+align:center;
+
+color: #222222;
+
+}
+.btn{
+border-radius: 0.1rem;
+}
+
+.btn-custom{
+width: 142px;
+height: 31px;
+background: #2C2B2B;
+font-family: Roboto;
+font-style: normal;
+font-weight: 600;
+font-size: 14px;
+line-height: 16px;
+letter-spacing: -0.045em;
+color: #ffffff;
+margin-top:6px;
+}
+
+.row{
+
+    margin:0 auto;
+}
+
+.row .col-md-2 {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+    margin-left: 15px;
+    margin-right: 15px;
+    margin-bottom: 72px;
+}
+.product-img{
+
+width:141px;
+
+height:197px
+
+
+}
+.dividerClass{
+
+  border-top-color: #999;
+ }
+
+.product-img {
+    width: 152px;
+    height: 213px;
+
+}
+
+a.nav-link:hover{
+background:#616161;
+height:100%;
+color:#ffffff;
+
+}
+button.btn.btn-custom:hover {
+background:#616161;
+color:#ffffff;
+}
+div.product-box.col-md-2:hover {
+
+background: rgba(44, 61, 77, 0.45);;
+
+
+color:#ffffff;
+
+padding-bottom: 14px;
+padding-top: 14px;
+transition: 0.6s;
+padding-left:16px;
+padding-right: 14px;
+
+}
+ .form-control {
+    background: #FFFEFE;
+    border: 2px solid #a9a9a9;
+    box-sizing: border-box;
+    box-shadow: 0px 4px 8px rgb(0 0 0 / 25%);
+    border-radius: 5px;
+    padding: 14px;
+    padding: 14px;
+    -0.605rem: ;
+    padding-left: 1rem;
+    height: 40px;
+    padding-right: 3rem;
+    margin-bottom: 17px;
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #2C2B2B;
+    border-color: #ffffff;
+}
+}
+
+p.register-infos{
+
+font-family: Open Sans;
+font-weight: 700;
+
+
+}
+.card{
+background:grey;
+
+}
+.custom-color-contact{
+  background:#18191A;
+  radius:25px;
+  color:white;
+
+
+}
+.custom-contact-css{
+
+    margin-top: 24px;
+    margin-bottom: 24px;
+    margin-left: 23px;
+}
+.fa-user-contact{
+font-size:85px;
+
+
+}
+textarea.form-control{
+    height: 79px;
+}
+
+img.product-img-single{
+    width: 225px;
+    height: 362px;
+}
+
+.product-page-hero{
+width: 100%;
+background: #515151;
+    margin-top: 50px;
+    padding-top: 23px;
+    padding-bottom: 29px
+}
+
+
+.product-card{
+    background: #FFFFFF;
+    border-radius: 6px;
+    padding: 20px;
+    padding-top: 30px;
+    padding-bottom: 68px;
+    padding-right: 60px;
+}
+
+.product-buy-button{
+
+width: 200px;
+height: 43px;
+background: #2C2B2B;
+border-radius: 6px;
+font-family: Poppins;
+font-style: normal;
+font-weight: bold;
+font-size: 20px;
+line-height: 176.69%;
+letter-spacing: 0.015em;
+color: #FFFFFF;
+
+}
+
+
+
+.product-title{
+
+font-family: Poppins;
+font-style: normal;
+font-weight: bold;
+font-size: 24px;
+line-height: 176.69%;
+letter-spacing: 0.015em;
+
+color: #565656;
+}
+.product-cat{
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 28px;
+letter-spacing: 0.015em;
+
+color: #000000;
+
+}
+.product-price{
+font-family: Poppins;
+font-style: normal;
+font-weight: bold;
+font-size: 19px;
+line-height: 176.69%;
+
+letter-spacing: 0.015em
+
+
+}
+
+div.product-price-custom{
+
+margin-bottom: 8px;
+}
+
+
+a{
+    text-decoration: none !important;
+}
+
+a:hover {
+
+  text-decoration: none !important;
+}
+
+.footer{
+margin-top:80px;
+background: #2C2C2C;
+padding-top: 36px;
+padding-bottom: 20px
+
+}
+
+.footer-container{
+padding-top:200px;
+padding-bottom:50px;
+
+}
+
+.footer-link{
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 17px;
+    line-height: 178.7%;
+    letter-spacing: 0.045em;
+    color: #FFFFFF;
+
+}
+.footer-useful{
+
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 19px;
+    line-height: 178.7%;
+    letter-spacing: 0.045em;
+    color: #FFFFFF;
+
+
+}
+
+p.footer-about{
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+
+letter-spacing: 0.015em;
+
+color: #FFFFFF;
+line-height: 176.69%;
+
+
+}
+.foooter-copyright{
+
+background: #5A5A5A;
+}
+
+
+.footer-copyright-text{
+
+font-family: Roboto;
+font-style: normal;
+font-weight: 500;
+font-size: 15px;
+line-height: 178.7%;
+
+letter-spacing: 0.045em;
+padding-top:5px;
+
+color: #FFFFFF;
+
+}
+.footer-row{
+    padding-left: 50px;
+    padding-right: 50px;
+
+}
+
+.footer-col{
+padding-right: 70px;
+}
+hr{
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border: 0;
+    border-top: 3px solid #eeeeee !important;
+    width:40px;
+}
+
+p.product-des{
+margin-top:20px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 16px;
+line-height: 28px;
+letter-spacing: 0.015em;
+color: #5a5959;
+
+}

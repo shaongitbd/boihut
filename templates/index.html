@@ -1,0 +1,42 @@
+{% extends 'base.html'%}
+
+{%block content%}
+{%load static%}
+    <div class="row">
+
+        <h4 class="category-title text-center" style="font-family:Poppins; font-weight:600;"> Books </h4>
+
+
+    </div>
+    <hr class="align:center"/>
+
+<div class="container ms-auto" style="margin-top:50px;">
+    <div class="row">
+    {%for book in books%}
+
+
+         <div class="product-box col-md-2 col-sm-6">
+             <a class="text-decoration-none" href="book/{{book.slug}}">
+           <img class="product-img" src="{{book.image.url}}"/>
+            <h3 class="book-title">{{book.title}} </h3>
+            <p class="book-price"><b>৳ {{book.price}}</b></p>
+            <button class="btn btn-custom"> Buy Now </button>
+
+
+
+        </a></div>
+
+
+
+{% endfor %}
+
+</div>
+
+
+
+</div>
+
+
+
+
+{%endblock content%}
