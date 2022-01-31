@@ -11,9 +11,10 @@ from bookstore.models import Book
 def add_to_cart(request, user_book):
     session  = request.session.session_key
 
-    print(session)
+
     if not session:
         session = request.session.create()
+        session = request.session.session_key
 
         cart_for_save = Cart.objects.create(
           cart_session=session,
@@ -21,10 +22,11 @@ def add_to_cart(request, user_book):
         cart_for_save.save()
 
 
-    user_book=Book.objects.get(slug=user_book)
+    #user_book=Book.objects.get(slug=user_book)
     session_aa = Cart.objects.get(cart_session=session)
+    op_book = Book.objects.get(slug=user_book)
 
-    check_if_already_exits = CartItems.objects.all().filter(cart=session_aa, book=user_book).first()
+    check_if_already_exits = CartItems.objects.all().filter(cart=session_aa, book=op_book).first()
     print(check_if_already_exits)
 
 
@@ -38,6 +40,20 @@ def add_to_cart(request, user_book):
           is_active=True,
           )
         cartitem_save.save()
+
+    else:
+        quantity_update = CartItems.objects.get(cart=session_aa, book=op_book)
+        quantity_update = quantity_update.quantity+1
+
+        cartitem_save = CartItems.objects.update(
+            cart=Cart.objects.get(cart_session=session),
+            book=Book.objects.get(slug=user_book),
+            quantity=quantity_update,
+            is_active=True,
+        )
+        cartitem_save.save()
+
+
     return redirect('cart')
 
 

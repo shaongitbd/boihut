@@ -3,8 +3,10 @@ from bookstore.models import Book
 # Create your models here.
 
 class Cart(models.Model):
-    cart_session = models.CharField(max_length=250,null=True, blank=True)
+    cart_session = models.CharField(max_length=250)
     add_date = models.DateTimeField(auto_now_add=True)
+    def __str__(self):
+        return self.cart_session
 
 
 
