@@ -25,7 +25,7 @@ from bookstore.views import single_book
 from cart.views import add_to_cart
 from cart.views import cart
 from cart.views import delete_cart_item
-
+from cart.views import update_cart_item
 
 
 urlpatterns = [
@@ -37,6 +37,7 @@ urlpatterns = [
     path('book/<slug:single_book_slug>', single_book),
     path('cart/', cart,name = 'cart'),
     path('add_to_cart/<str:user_book>', add_to_cart,name="add_cart"),
+    path('update_cart_item/<str:book_slug>', update_cart_item, name="update_cart"),
     path('delete_cart_item/<str:book_slug>', delete_cart_item,name="delete_cart_item")
 
 

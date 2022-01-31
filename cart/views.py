@@ -51,21 +51,37 @@ def add_to_cart(request, user_book):
             quantity=quantity_update,
             is_active=True,
         )
-        cartitem_save.save()
+
 
 
     return redirect('cart')
+
+def update_cart_item(request, book_slug):
+    session = request.session.session_key
+    user_session = Cart.objects.get(cart_session=session)
+    book_item = Book.objects.get(slug=book_slug)
+
+    update_db = CartItems.objects.update(
+
+        cart = user_session,
+        book = book_item,
+        quantity =1,
+        is_active=True,
+
+    )
+    update_db.save()
+
+
 
 
 def delete_cart_item(request, book_slug):
     session = request.session.session_key
     my_cart = Cart.objects.get(cart_session=session)
-    cart_items = CartItems.objects.all().filter(cart=my_cart)
-    for cart_item in cart_items:
+    book_item = Book.objects.get(slug=book_slug)
 
-        if cart_item.book.slug==book_slug:
-            print(cart_item)
-            cart_item.delete()
+    cart_items = CartItems.objects.all().filter(cart=my_cart,book=book_item)
+
+    cart_items.delete()
 
 
 

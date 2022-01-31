@@ -16,7 +16,7 @@
               <div class="col-md-1 book-cart-price"><b><input class="boihut-book-checkout-button" type="number" value="{{cart_item.quantity}}" min="1" max="{{cart_item.book.stocks}}"></b></div>
 
                 <div class="col-md-1 book-cart-total-book-price"><b>{{cart_item.book.price|mul:cart_item.quantity }}</b></div>
-            <div class="col-md-2" ><button align="right" class="btn boihut-custom-btn-update">Update</button></div>
+            <div class="col-md-2" ><a href="{%url 'update_cart' cart_item.book.slug%}"<button align="right" class="btn boihut-custom-btn-update">Update</button></div>
             <div class="col-md-1"><a href="{%url 'delete_cart_item' cart_item.book.slug%}"><button  align="right" class="btn boihut-custom-btn-remove">Delete</button></a></div>
 </div>
 
