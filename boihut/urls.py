@@ -22,6 +22,11 @@ from django.conf.urls.static import static
 from django.conf import settings
 from category.views import category
 from bookstore.views import single_book
+from cart.views import add_to_cart
+from cart.views import cart
+from cart.views import delete_cart_item
+
+
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -29,7 +34,10 @@ urlpatterns = [
     path('contact',contact),
     path('about',about),
     path('category/<slug:cat_slug>/',category),
-    path('book/<slug:single_book_slug>', single_book)
+    path('book/<slug:single_book_slug>', single_book),
+    path('cart/', cart,name = 'cart'),
+    path('add_to_cart/<str:user_book>', add_to_cart,name="add_cart"),
+    path('delete_cart_item/<str:book_slug>', delete_cart_item,name="delete_cart_item")
 
 
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

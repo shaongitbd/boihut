@@ -30,7 +30,7 @@
                <h3 class="color-red">Product Not Available</h3>
 
               {% else %}
-               <button class="product-buy-button"> Buy Now</button>
+               <a href="{%url 'add_cart' book.slug%}" class="product-buy-button"> Buy Now</a>
               {%endif%}
 
 

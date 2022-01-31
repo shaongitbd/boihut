@@ -470,4 +470,95 @@ line-height: 28px;
 letter-spacing: 0.015em;
 color: #5a5959;
 
+
+
+}
+
+
+img.book-cart-img{
+    margin-left: 10px;
+    margin-right: 27px;
+
+}
+
+div.book-cart-box{
+
+  
+    padding-top: 14px;
+    padding-bottom: 15px;
+
+}
+div.book-cart-price, div.book-cart-price, div.book-quantity, div.book-cart-total-book-price {
+    margin-top: 33px;
+    font-size: 18px;
+}
+
+.boihut-book-checkout-button{
+    height: 34px;
+    width: 55px;
+    padding-left: 20px;
+
+}
+.boihut-custom-btn-update{
+
+margin-top:28px;
+background: grey;
+        height: 39px;
+    width: 115px;
+font-weight:600;
+font-size:14px;
+color:#e3e3e3;
+}
+
+.boihut-custom-btn-remove{
+margin-top:28px;
+background: #3a3939 ;
+    height: 39px;
+    width: 115px;
+font-weight:600;
+font-size:14px;
+color: white;
+}
+.author-name{
+font-size:14px;
+}
+
+.boihut-checkout-card{
+
+background: white;
+color: #222222;
+1px solid rgb(0 0 0 / 27%);
+padding: 24px;
+
+
+
+}
+
+h4.boihut-h4-checkout{
+
+
+    border: 1px solid lightgrey;
+    padding: 10px;
+    font-size: 17px;
+    padding: 13px;
+
+}
+.boihut-checkout-btn{
+
+    margin-top: 15px;
+    padding: 10px;
+    font-size: 17px;
+    background: #323232;
+    color: white;
+    font-weight: 600;
+}
+
+.boihut-checkout-continue{
+    margin-top: 30px;
+    padding: 10px;
+    font-size: 17px;
+    background: white;
+    color: #222222;
+    font-weight: 600;
+    border: 1px solid lightgrey;
 }

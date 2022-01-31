@@ -43,3 +43,5 @@ def single_book(request, single_book_slug):
         }
 
     return render(request, 'book-single-page.html',context)
+
+

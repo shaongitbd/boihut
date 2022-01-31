@@ -1,5 +1,9 @@
 {%extends 'base.html'}
 {%block content%}
+{%for cart_item in cart_items%}
+{{cart_item.book}}
+{%endfor%}
+{%load %}
 <div id="container" class="d-flex justify-content-center align-items-center container">
             <div class="row">
     <form>
