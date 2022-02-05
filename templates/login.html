@@ -1,10 +1,12 @@
 {%extends 'base.html'%}
 {%load static%}
 {%block content%}
-<div id="container" class="d-flex justify-content-center align-items-center container">
+<div class="container" style="margin-top:150px;">
+    <div class="col-md-9">
+    {%include 'messages.html'%} </div>
             <div class="row">
     <form>
-  <div class="container ms-center justify-content-center" style="margin-top:150px;">
+  <div class="ms-center justify-content-center col-md-6 align-items-center justify-content-center" style="margin-top:150px;">
   <div class="form-group">
     <label for="Email">Username</label>
     <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" placeholder="Enter Your Username">
