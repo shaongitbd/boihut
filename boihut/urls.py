@@ -29,10 +29,11 @@ from cart.views import update_cart_item
 from bookstore.views import search_result
 from accounts.views import register
 from accounts.views import login
+from accounts.views import logout
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('',home),
+    path('',home,name="home"),
     path('contact',contact),
     path('about',about),
     path('category/<slug:cat_slug>/',category),
@@ -43,7 +44,8 @@ urlpatterns = [
     path('delete_cart_item/<str:book_slug>', delete_cart_item, name="delete_cart_item"),
     path('search/', search_result, name="search_res"),
     path('register',register, name="register" ),
-    path('login', login, name="login")
+    path('login', login, name="login"),
+    path('logout', logout, name="logout")
 
 
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

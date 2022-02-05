@@ -83,4 +83,10 @@ def login(request):
 
      return render(request,"login.html")
 
+def logout(request):
+    auth.logout(request)
+    messages.success(request,"You have been logged out successfully")
+    return redirect("home")
+
+
 
