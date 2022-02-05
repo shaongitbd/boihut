@@ -29,7 +29,6 @@ def single_book(request, single_book_slug):
     if single_book_slug is not None:
         book = get_object_or_404(Book,slug=single_book_slug)
 
-
         #releated_categories = get_object_or_404(Category,slug=single_book_slug)
         releated_books = Book.objects.all().filter(category=book.category)[0:5]
 

@@ -16,3 +16,5 @@ def category(request, cat_slug=None):
 
     }
     return render(request,'books-cat.html', context)
+
+

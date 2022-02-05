@@ -4,26 +4,7 @@ from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
 
 class AccountManager(BaseUserManager):
 
-     def client_ip(self,request):
-        x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-
-        if x_forwarded_for:
-            ip = x_forwarded_for.split(',')[0]
-        else:
-            ip = request.META.get('REMOTE_ADDR')
-        return ip
-
      def create_user(self, first_name, last_name,username,phone, email,password):
-
-
-       if not first_name:
-           raise ValueError("You must provide Your First Name")
-       if not username:
-           raise ValueError("You must provide a username")
-       if not email:
-           raise ValueError("You must provide your email address")
-       if not phone:
-           raise ValueError("You must provide a phone number")
 
        user = self.model(
            email=self.normalize_email(email),
@@ -41,31 +22,6 @@ class AccountManager(BaseUserManager):
        user.save(using=self.db)
        return user
 
-     def create_admin_account(self, first_name, last_name,username,phone, email,password):
-          if not first_name:
-              raise ValueError("You must provide Your First Name")
-          if not username:
-              raise ValueError("You must provide a username")
-          if not email:
-              raise ValueError("You must provide your email address")
-          if not phone:
-              raise ValueError("You must provide a phone number")
-
-          user = self.model(
-              email=self.normalize_email(email),
-              first_name=first_name,
-              last_name=last_name,
-              username=username,
-              phone=phone,
-
-          )
-          user.is_admin = True
-          user.is_superadmin = True
-          user.is_stuff = True
-          user.is_active = True
-          user.set_pasword(password)
-          user.save(using=self.db)
-          return user
 
 class Account(AbstractBaseUser):
     first_name = models.CharField(max_length=100)
