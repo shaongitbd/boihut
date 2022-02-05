@@ -43,7 +43,7 @@ urlpatterns = [
     path('delete_cart_item/<str:book_slug>', delete_cart_item, name="delete_cart_item"),
     path('search/', search_result, name="search_res"),
     path('register',register, name="register" ),
-    path('login', login,name="login")
+    path('login', login, name="login")
 
 
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

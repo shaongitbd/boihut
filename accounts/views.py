@@ -3,6 +3,7 @@ from .models import AccountManager,Account
 from django.contrib import messages
 from django.contrib.auth import authenticate
 from django.contrib.auth.models import User
+from django.contrib import auth
 # Create your views here.
 
 
@@ -30,7 +31,7 @@ def register(request):
         if post_password != post_conf_password:
 
             message.error(request, 'Password and Confirm Password Does not match')
-            return redirect("register.html")
+            return redirect("register")
 
         if not check_username or not check_email:
             user = Account.objects.create(
@@ -51,13 +52,29 @@ def register(request):
             return redirect("login")
         else:
             messages.error(request, "Sorry, an user with the same credentials already exits. Please login to your account")
-            return render(request, 'login.html')
+            return render(request, 'login')
 
     else:
         return render(request, 'register.html')
 
 
 def login(request):
+     if request.POST:
+         post_email = request.POST['email']
+         post_password = request.POST['password']
+         user = auth.authenticate(email=post_email, password=post_password)
+         print(user)
+         if user is not None:
+             auth.login(request, user)
+             messages.success(request, "You have been logged in.")
+             return rediect('login')
+         else:
+
+             messages.error(request, "Sorry your Email/Password don't match")
+             return redirect('login')
+
+
+
      return render(request,"login.html")
 
 
