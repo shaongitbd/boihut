@@ -48,9 +48,9 @@ def register(request):
 
 
             messages.success(request, 'Your account has been registered. Please Login now')
-            return redirect("login.html")
+            return redirect("login")
         else:
-            messages.error(request, "Sorry, an user with the username already exits. Please login to your account")
+            messages.error(request, "Sorry, an user with the same credentials already exits. Please login to your account")
             return render(request, 'login.html')
 
     else:
