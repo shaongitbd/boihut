@@ -79,7 +79,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'boihut.wsgi.application'
 
-AUTH_USER_MODEl = 'accounts.Account'
+AUTH_USER_MODEL  = 'accounts.Account'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
