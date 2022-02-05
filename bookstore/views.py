@@ -45,3 +45,15 @@ def single_book(request, single_book_slug):
     return render(request, 'book-single-page.html',context)
 
 
+def search_result(request):
+    if 'query' in request.GET:
+        q = request.GET['query']
+        books = Book.objects.all().filter(title=q)
+        print(q)
+        print(books)
+        context  = {
+            'books':books,
+        }
+        return render(request, 'search_res.html', context)
+
+
