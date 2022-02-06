@@ -90,3 +90,5 @@ def logout(request):
 
 
 
+def account_home(request):
+    pass

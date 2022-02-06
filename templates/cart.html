@@ -13,10 +13,12 @@
               <div class="col book-short-detail"><div class="book-title" ><h3>{{cart_item.book.title}}</h3></div></div> </a>
               <div class="col author-name"><p>{{cart_item.book.author}}</p></div></div>
               <div class="col-md-1 book-cart-price"><b>{{cart_item.book.price}}</b></div>
-              <div class="col-md-1 book-cart-price"><b><input class="boihut-book-checkout-button" type="number" value="{{cart_item.quantity}}" min="1" max="{{cart_item.book.stocks}}"></b></div>
+               <form action="/update_cart_item/{{cart_item.book.slug}}" method="POST">
+                   {%csrf_token%}
+              <div class="col-md-1 book-cart-price"><b><input class="boihut-book-checkout-button" name="quantity" type="number" value="{{cart_item.quantity}}" min="1" max="{{cart_item.book.stocks}}"></b></div>
 
                 <div class="col-md-1 book-cart-total-book-price"><b>{{cart_item.book.price|mul:cart_item.quantity }}</b></div>
-        <div class="col-md-2" ><a href="{%url 'update_cart' cart_item.book.slug%}"><button align="right" class="btn boihut-custom-btn-update">Update</button></a></div>
+        <div class="col-md-2" ><button type="submit" align="right" class="btn boihut-custom-btn-update">Update</button></div> </form>
             <div class="col-md-1"><a href="{%url 'delete_cart_item' cart_item.book.slug%}"><button  align="right" class="btn boihut-custom-btn-remove">Delete</button></a></div>
 </div>
 

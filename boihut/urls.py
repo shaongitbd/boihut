@@ -30,6 +30,7 @@ from bookstore.views import search_result
 from accounts.views import register
 from accounts.views import login
 from accounts.views import logout
+from accounts.views import account_home
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -45,7 +46,8 @@ urlpatterns = [
     path('search/', search_result, name="search_res"),
     path('register',register, name="register" ),
     path('login', login, name="login"),
-    path('logout', logout, name="logout")
+    path('logout', logout, name="logout"),
+    path('account/home', account_home, name="account_home")
 
 
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
