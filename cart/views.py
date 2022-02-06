@@ -30,7 +30,23 @@ def add_to_cart(request, user_book):
 
     #print(check_if_already_exits)
 
+    print("working")
+    try:
+        check_if_already_exits = CartItems.objects.get(cart=session_aa, book=op_book)
+        print(check_if_already_exits)
+        print("updating")
+        if check_if_already_exits:
+            print("checking update")
+            op_book = Book.objects.get(slug=user_book)
+            quantity_update = CartItems.objects.get(cart=session_aa, book=op_book)
+            quantity_update = quantity_update.quantity + 1
 
+            cartitem = CartItems.objects.get(
+                cart=Cart.objects.get(cart_session=session),
+                book=Book.objects.get(slug=user_book),
+            )
+            cartitem.quantity = cartitem.quantity + 1
+            cartitem.save()
 
 
 
