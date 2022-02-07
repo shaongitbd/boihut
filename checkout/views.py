@@ -12,6 +12,7 @@ def checkout_req(request):
         if req_user.is_authenticated:
             # working on order model
             client = request.user
+            print(client)
             order_note = request.POST['order_note']
 
             # Unsafe to grab total from get or post req
@@ -36,6 +37,7 @@ def checkout_req(request):
             cart = Cart.objects.get(cart_session=session)
             cart_items_list = CartItems.objects.all().filter(cart=cart)
             total = 0
+            print(order_save)
 
             for item in cart_items_list:
 
@@ -54,6 +56,7 @@ def checkout_req(request):
 
             # working on invoice
 
+
             total_price = total
             first_name = request.POST['first_name']
             last_name = request.POST['last_name']
@@ -66,16 +69,20 @@ def checkout_req(request):
 
 
             save_invoice = invoice.objects.create(
+                order_id=order_save,
                 total_price=total_price,
                 first_name=first_name,
-                address=address,
                 last_name=last_name,
+                address=address,
                 division=division,
                 city=city,
                 zip=zip,
                 country=country,
             )
             save_invoice.save()
+            #updating order
+            message.success(request,"Your order has been successfully received.")
+
 
         else:
             return redirect("login")
