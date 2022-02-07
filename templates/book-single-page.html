@@ -22,15 +22,14 @@
         <div class="row">
             <div class="product-price-custom col-md-2" style="margin-bottom: 8px;">  <p class="product-price text-left">
                 {{book.price}}</p></div>
-            <div class="col-md-1"> <input class="form-control search-input mr-sm-2 ms-left" type="search" placeholder="1" aria-label="1"/> </div>
-        </div>
+
             {% if book.stocks <= 0%}
               <button class="product-buy-button btn-disabled"> Out of Stock</button>
               {%elif book.stocks_available is False%}
                <h3 class="color-red">Product Not Available</h3>
 
               {% else %}
-               <button class="product-buy-button"> Buy Now</button>
+             <a href="{%url 'add_cart' book.slug%}" > <button class="btn product-buy-button">  Buy Now</button> </a>
               {%endif%}
 
 

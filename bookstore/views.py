@@ -29,7 +29,6 @@ def single_book(request, single_book_slug):
     if single_book_slug is not None:
         book = get_object_or_404(Book,slug=single_book_slug)
 
-
         #releated_categories = get_object_or_404(Category,slug=single_book_slug)
         releated_books = Book.objects.all().filter(category=book.category)[0:5]
 
@@ -43,3 +42,17 @@ def single_book(request, single_book_slug):
         }
 
     return render(request, 'book-single-page.html',context)
+
+
+def search_result(request):
+    if 'query' in request.GET:
+        q = request.GET['query']
+        books = Book.objects.all().filter(title=q)
+        print(q)
+        print(books)
+        context  = {
+            'books':books,
+        }
+        return render(request, 'search_res.html', context)
+
+

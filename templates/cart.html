@@ -1,0 +1,47 @@
+{% extends 'base.html'%}
+{%load mathfilters %}
+{%block content%}
+{%load static%}
+
+
+<div class="container" style="margin-top:150px">
+    {%for cart_item in cart_items%}
+    <div class="row book-cart-box">
+
+          <div class="book-img-info col-md-5"> <img class="book-cart-img" align="left" src="{{cart_item.book.image.url}}" style="height: 128px;width: 126px;"/>
+              <a href="/book/{{cart_item.book.slug}}" class="nostyle">
+              <div class="col book-short-detail"><div class="book-title" ><h3>{{cart_item.book.title}}</h3></div></div> </a>
+              <div class="col author-name"><p>{{cart_item.book.author}}</p></div></div>
+              <div class="col-md-1 book-cart-price"><b>{{cart_item.book.price}}</b></div>
+               <form action="/update_cart_item/{{cart_item.book.slug}}" method="POST">
+                   {%csrf_token%}
+              <div class="col-md-1 book-cart-price"><b><input class="boihut-book-checkout-button" name="quantity" type="number" value="{{cart_item.quantity}}" min="1" max="{{cart_item.book.stocks}}"></b></div>
+
+                <div class="col-md-1 book-cart-total-book-price"><b>{{cart_item.book.price|mul:cart_item.quantity }}</b></div>
+        <div class="col-md-2" ><button type="submit" align="right" class="btn boihut-custom-btn-update">Update</button></div> </form>
+            <div class="col-md-1"><a href="{%url 'delete_cart_item' cart_item.book.slug%}"><button  align="right" class="btn boihut-custom-btn-remove">Delete</button></a></div>
+</div>
+
+{%endfor%}
+</div>
+</div>
+
+<div class="container "><div class="row" >
+<div class="col-5 card boihut-checkout-card" align="right">
+    <h4 align="left" class="boihut-h4-checkout">Subtotal: {{total}}</h4>
+    <h4 align="left" class="boihut-h4-checkout">Grandtotal: {{total}}</h4>
+    <a href="/"><button class="btn boihut-checkout-continue">
+        Continue Shopping
+    </button></a>
+    <button class="btn boihut-checkout-btn">
+        Checkout
+    </button>
+
+</div>
+
+</div>
+</div>
+
+
+
+{%endblock content%}

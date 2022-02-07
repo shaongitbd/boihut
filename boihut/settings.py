@@ -42,8 +42,13 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'category',
     'accounts',
-    'bookstore'
+    'bookstore',
+    'cart',
+    'mathfilters',
+    'checkout',
 ]
+MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -75,7 +80,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'boihut.wsgi.application'
 
-AUTH_USER_MODEl = 'accounts.Account'
+AUTH_USER_MODEL  = 'accounts.Account'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
@@ -131,6 +136,7 @@ STATICFILES_DIRS=[
 ]
 
 
+
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
@@ -138,3 +144,9 @@ MEDIA_ROOT = BASE_DIR / 'media'
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+from django.contrib.messages import constants as messages
+MESSAGE_TAGS = {
+    messages.ERROR: 'danger',
+
+}

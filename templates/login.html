@@ -1,20 +1,27 @@
-{%extends 'base.html'}
+{%extends 'base.html'%}
+{%load static%}
 {%block content%}
-<div id="container" class="d-flex justify-content-center align-items-center container">
+<div class="container" style="margin-top:150px;">
+    <div class="col-md-12" style="margin-top:20px;margin-bottom:20px;" >
+    {%include 'messages.html'%} </div>
             <div class="row">
-    <form>
-  <div class="container ms-center justify-content-center" style="margin-top:150px;">
+
+    <form action="login" method="POST">
+
+  <div class="ms-center justify-content-center col-md-6 align-items-center justify-content-center" style="margin-top:20px;">
   <div class="form-group">
-    <label for="Email">Username</label>
-    <input type="email" class="form-control" id="Email" aria-describedby="emailHelp" placeholder="Enter Your Username">
+    <label for="id_email">Email</label>
+    <input type="email" name="email" class="form-control" id="id_email" aria-describedby="emailHelp" placeholder="Enter Your Email" required>
   </div>
   <div class="form-group ">
-    <label for="password">Password</label>
-    <input type="password" class="form-control" id="password" placeholder="Enter Your Pasword">
+    <label for="id_password"> Password</label>
+    <input type="password" name="password" id="id_password" class="form-control" placeholder="Enter Your Password" required>
   </div>
 
   <button type="submit" class="btn btn-primary">Submit</button>
-  </div> </form>
+  </div>
+    {% csrf_token %}
+    </form>
             </div>
 </div>
 
