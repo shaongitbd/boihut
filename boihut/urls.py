@@ -50,7 +50,7 @@ urlpatterns = [
     path('logout', logout, name="logout"),
     path('account/home', account_home, name="account_home"),
     path('checkout', checkout_page, name="checkout_page"),
-    path('checkout/process', checkout_req, name="checkout_req")
+    path('checkout_req/process', checkout_req, name="checkout_req")
 
 
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -1,11 +1,14 @@
 from django.shortcuts import render,redirect
+from django.contrib.auth import authenticate
+from django.contrib import auth,messages
 from cart.models import Cart,CartItems
 from .models import order,order_list,order_note_admin,invoice
-
+from bookstore.models import Book
 
 def checkout_req(request):
     if request.POST:
         req_user = request.user
+
         if req_user.is_authenticated:
             # working on order model
             client = request.user
@@ -19,16 +22,15 @@ def checkout_req(request):
             # total = request.POST['total']
 
 
-            order_save = order.create(
+            order_save = order.objects.create(
                 client=client,
-                order_note_user=order_note,
+               # order_note_user=order_note,
 
             )
             order_save.save()
 
             # working on order_list
 
-            order_id = order.objects.get(order_save.id)
 
             session = request.session.session_key
             cart = Cart.objects.get(cart_session=session)
@@ -37,15 +39,15 @@ def checkout_req(request):
 
             for item in cart_items_list:
 
-                order_item_z= Book.objects.get(title=item.title)
-                price_z = item.price
+                order_item= Book.objects.get(title=item.book)
+                price = order_item.price
                 quantity = item.quantity
                 total += price*quantity
 
-                order_list_save = order_list.create(
-                    order_id=order_id,
-                    order_item=order_item_z,
-                    order_price=price_Z,
+                order_list_save = order_list.objects.create(
+                    order_id=order_save,
+                    order_item=order_item,
+                    order_price=price,
                     order_quantity=quantity
                 )
                 order_list_save.save()
@@ -59,14 +61,16 @@ def checkout_req(request):
             city = request.POST['city']
             division = request.POST['division']
             zip = request.POST['zip']
-            country = reqeust.POST['country']
+            country = request.POST['country']
 
 
 
-            save_invoice = invoice.save(
-                total_price=total,
+            save_invoice = invoice.objects.create(
+                total_price=total_price,
                 first_name=first_name,
+                address=address,
                 last_name=last_name,
+                division=division,
                 city=city,
                 zip=zip,
                 country=country,
@@ -83,5 +87,6 @@ def checkout_page(request):
     if request.user.is_authenticated:
         return render(request, "checkout.html")
     else:
+        messages.error(request,"You need to be registered to place an order ")
         return redirect("register")
 

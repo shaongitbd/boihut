@@ -4,11 +4,12 @@
 {%include 'messages.html'}
 
 <form action="checkout_req/process" method="POST">
+    {% csrf_token %}
     <meta charset="UTF-8">
       <p class="register-infos text-center"> Delivery Info </p>
   <div class="form-group col-md-6">
     <label for="first_name">First Name</label>
-    <input type="text" class="form-control" name="fast_name" id="first_name" placeholder="Enter your first name">
+    <input type="text" class="form-control" name="first_name" id="first_name" placeholder="Enter your first name">
    </div>
 
 <div class="form-group col-md-6">
@@ -17,16 +18,16 @@
    </div>
 
   <div class="form-group col-md-6">
-    <label for="street-address">Address</label>
-    <input type="text" class="form-control" name="address" id="street-address" placeholder="Enter Street Address">
+    <label for="address">Address</label>
+    <input type="text" class="form-control" name="address" id="address" placeholder="Enter Street Address">
   </div>
 <div class="form-group col-md-6">
     <label for="city">City</label>
-    <input type="text" class="form-control" id="city" placeholder="Enter Your city ">
+    <input type="text" class="form-control" name="city" id="city" placeholder="Enter Your city ">
   </div>
       <div class="form-group col-md-6">
     <label for="division">Division</label>
-    <input type="text" class="form-control" id="division" placeholder="Enter Your Division ">
+    <input type="text" class="form-control"  name="division" id="division" placeholder="Enter Your Division ">
   </div>
      <div class="form-group col-md-6">
     <label for="division">Zip Code</label>
@@ -44,6 +45,7 @@
   <div class="form-group col-md-6">
     <label for="order_note">Bkash Payment </label>
     <input type="text" class="form-control"  name="order_note" id="order_note" placeholder="Your bkash number and Transaction Id">
+      <button type="submit"> Submit </button>
   </div>
 </form>
 
