@@ -9,8 +9,16 @@ def checkout_req(request):
         if req_user.is_authenticated:
             # working on order model
             client = request.user
-            # order_note = request.POST['order_note']
-            total = request.POST['total']
+            order_note = request.POST['order_note']
+
+            # Unsafe to grab total from get or post req
+            # So, I think it's bettter for me to comment out this line.
+            # But I could have used it because it's a university project
+            # and not many people is going to use it in their production environment. Feel free to use if if you like
+
+            # total = request.POST['total']
+
+
             order_save = order.create(
                 client=client,
                 order_note_user=order_note,
@@ -71,5 +79,9 @@ def checkout_req(request):
         return redirect("register")
 
 
-
+def checkout_page(request):
+    if request.user.is_authenticated:
+        return render(request, "checkout.html")
+    else:
+        return redirect("register")
 
