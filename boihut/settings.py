@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'bookstore',
     'cart',
     'mathfilters',
+    'checkout',
 ]
 MESSAGE_STORAGE = 'django.contrib.messages.storage.session.SessionStorage'
 

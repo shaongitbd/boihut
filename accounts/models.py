@@ -1,6 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import AbstractBaseUser, BaseUserManager
-from bookstore.models import Book
+
 
 # Create your models here.
 
