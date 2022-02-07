@@ -31,6 +31,7 @@ from accounts.views import register
 from accounts.views import login
 from accounts.views import logout
 from accounts.views import account_home
+from checkout.views import checkout_req
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -47,7 +48,8 @@ urlpatterns = [
     path('register',register, name="register" ),
     path('login', login, name="login"),
     path('logout', logout, name="logout"),
-    path('account/home', account_home, name="account_home")
+    path('account/home', account_home, name="account_home"),
+    path('checkout/', checkout_req, name="checkout")
 
 
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
