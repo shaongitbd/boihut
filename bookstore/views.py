@@ -1,7 +1,9 @@
 from django.shortcuts import render,get_object_or_404
 from .models import Book
 from category.models import Category
+
 categories_list = Category.objects.all()
+
 
 # :/ ektu beshi e kosto kora lage eida te
 
@@ -54,5 +56,6 @@ def search_result(request):
             'books':books,
         }
         return render(request, 'search_res.html', context)
+
 
 

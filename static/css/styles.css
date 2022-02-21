@@ -562,3 +562,24 @@ h4.boihut-h4-checkout{
     font-weight: 600;
     border: 1px solid lightgrey;
 }
+
+
+.boihut-dashboard-menu-list.active{
+    z-index: 2;
+    color: #ffffff;
+    background-color: #3e3e3e;
+    border-color: none;
+}
+
+.list-group-item.active{
+   border-color: #3e3e3e,
+}
+
+
+.boihut-dashboard-menu-list {
+    z-index: 2;
+    color: #fff;
+    background-color: #525252;
+}
+
+

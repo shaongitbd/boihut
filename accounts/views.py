@@ -59,7 +59,14 @@ def register(request):
         return render(request, 'register.html')
 
 
+
+
+
+
+
 def login(request):
+     if request.user.is_authenticated:
+         return redirect("dashboard")
      if request.POST:
          post_email = request.POST['email']
          post_password = request.POST['password']
@@ -70,10 +77,8 @@ def login(request):
          print(post_password)
          if user is not None:
              auth.login(request, user)
-
-
              messages.success(request, "You have been logged in.")
-             return redirect('login')
+             return redirect('dashboard')
          else:
 
              messages.error(request, "Sorry your Email/Password don't match")
@@ -83,12 +88,23 @@ def login(request):
 
      return render(request,"login.html")
 
+
+
 def logout(request):
     auth.logout(request)
-    messages.success(request,"You have been logged out successfully")
+    messages.success(request,"You have been logged out successfully.")
     return redirect("home")
 
 
 
 def account_home(request):
-    pass
+    if request.user.is_authenticated:
+        context={
+            'first_name': request.user.first_name,
+            'last_name': request.user.last_name,
+        }
+        return render(request, "dashboard.html",context=context)
+    else:
+         messages.error(request,"Sorry, You are not logged in. Please Login and try again")
+         return redirect("login")
+

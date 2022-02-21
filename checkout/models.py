@@ -9,6 +9,7 @@ class order(models.Model):
     client = models.ForeignKey(Account, on_delete = models.CASCADE)
     status = [("DRAFT","Draft"),
                ("PENDING","Pending"),
+              ("PROCESSING", "processing"),
               ("REJECTED","Rejected"),
               ("CANCELLED","Cancelled"),
               ("DELIVERED","Delivered"),
