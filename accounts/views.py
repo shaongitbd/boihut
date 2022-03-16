@@ -7,13 +7,6 @@ from django.contrib import auth
 
 
 def register(request):
-    x_forwarded_for = ''
-    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-
-    if x_forwarded_for:
-        ip = x_forwarded_for.split(',')[0]
-    else:
-        ip = request.META.get('REMOTE_ADDR')
 
     if request.POST:
 
@@ -41,14 +34,7 @@ def register(request):
                 phone = post_phone,
             )
             user.set_password(post_password)
-            print(post_password)
-
-
-
             user.save()
-            print(ip)
-
-
             messages.success(request, 'Your account has been registered. Please Login now')
             return redirect("login")
         else:
@@ -107,4 +93,7 @@ def account_home(request):
     else:
          messages.error(request,"Sorry, You are not logged in. Please Login and try again")
          return redirect("login")
+
+
+
 

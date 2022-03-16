@@ -10,9 +10,6 @@ class Cart(models.Model):
 
 
 
-
-
-
 class CartItems(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
     book = models.ForeignKey(Book, on_delete=models.CASCADE)
