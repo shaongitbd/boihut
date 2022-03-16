@@ -1,6 +1,5 @@
 from django.shortcuts import render,get_object_or_404,redirect
 from django.core.exceptions import ObjectDoesNotExist
-
 # Create your views here.
 from .models import Cart
 from .models import CartItems
@@ -47,7 +46,6 @@ def add_to_cart(request, user_book):
             )
             cartitem.quantity = cartitem.quantity + 1
             cartitem.save()
-
 
 
 
@@ -101,11 +99,6 @@ def delete_cart_item(request, book_slug):
     cart_items = CartItems.objects.all().filter(cart=my_cart,book=book_item)
 
     cart_items.delete()
-
-
-
-
-
 
     return redirect('cart')
 

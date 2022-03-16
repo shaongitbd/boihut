@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for order_items in order_items_list%}
+
+    <tr>
+      <th scope="row">{{order_items.order_item.title}}</th>
+      <td>{{order_items.order_quantity}}</td>
+      <td>{{order_items.order_price}}</td>
+      <td> {{ordder_items.}}</td>
+    </tr>
+  {%endfor%}
+
+  </tbody>
+</table>
+
+
+
+</body>
+</html>

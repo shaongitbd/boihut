@@ -9,6 +9,7 @@ class order(models.Model):
     client = models.ForeignKey(Account, on_delete = models.CASCADE)
     status = [("DRAFT","Draft"),
                ("PENDING","Pending"),
+              ("PROCESSING", "processing"),
               ("REJECTED","Rejected"),
               ("CANCELLED","Cancelled"),
               ("DELIVERED","Delivered"),
@@ -51,9 +52,11 @@ class invoice(models.Model):
               ("REJECTED","Rejected"),
               ("FRAUD","Fraud"),
               ("TIMEOUT","Timeout"))
-    invoice_id = models.AutoField(primary_key=True, blank=False,unique=True)
+
+
+    invoice_id = models.AutoField(primary_key=True)
     invoice_status = models.CharField(max_length=300, blank=False, choices=status,default="Pending Payment")
-    order_id =models.ForeignKey(order, blank=False,on_delete=models.DO_NOTHING)
+    order_id = models.ForeignKey(order,null=True, blank=False,on_delete=models.DO_NOTHING)
     total_price = models.IntegerField(blank=False)
     date_created = models.DateTimeField(auto_now_add=True)
     date_updated = models.DateTimeField(auto_now=True)

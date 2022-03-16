@@ -7,13 +7,6 @@ from django.contrib import auth
 
 
 def register(request):
-    x_forwarded_for = ''
-    x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
-
-    if x_forwarded_for:
-        ip = x_forwarded_for.split(',')[0]
-    else:
-        ip = request.META.get('REMOTE_ADDR')
 
     if request.POST:
 
@@ -41,14 +34,7 @@ def register(request):
                 phone = post_phone,
             )
             user.set_password(post_password)
-            print(post_password)
-
-
-
             user.save()
-            print(ip)
-
-
             messages.success(request, 'Your account has been registered. Please Login now')
             return redirect("login")
         else:
@@ -59,7 +45,14 @@ def register(request):
         return render(request, 'register.html')
 
 
+
+
+
+
+
 def login(request):
+     if request.user.is_authenticated:
+         return redirect("dashboard")
      if request.POST:
          post_email = request.POST['email']
          post_password = request.POST['password']
@@ -70,10 +63,8 @@ def login(request):
          print(post_password)
          if user is not None:
              auth.login(request, user)
-
-
              messages.success(request, "You have been logged in.")
-             return redirect('login')
+             return redirect('dashboard')
          else:
 
              messages.error(request, "Sorry your Email/Password don't match")
@@ -83,12 +74,26 @@ def login(request):
 
      return render(request,"login.html")
 
+
+
 def logout(request):
     auth.logout(request)
-    messages.success(request,"You have been logged out successfully")
+    messages.success(request,"You have been logged out successfully.")
     return redirect("home")
 
 
 
 def account_home(request):
-    pass
+    if request.user.is_authenticated:
+        context={
+            'first_name': request.user.first_name,
+            'last_name': request.user.last_name,
+        }
+        return render(request, "dashboard.html",context=context)
+    else:
+         messages.error(request,"Sorry, You are not logged in. Please Login and try again")
+         return redirect("login")
+
+
+
+
