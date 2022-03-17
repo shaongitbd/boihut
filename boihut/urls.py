@@ -35,7 +35,7 @@ from checkout.views import checkout_req, checkout_page
 from bookstore.views import orders
 from bookstore.views import view_order
 from bookstore.views import view_invoice
-
+from accounts.views import profile_edit
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home,name="home"),
@@ -51,14 +51,13 @@ urlpatterns = [
     path('register',register, name="register" ),
     path('login', login, name="login"),
     path('logout', logout, name="logout"),
-    path('account/home', account_home, name="account_home"),
     path('checkout', checkout_page, name="checkout_page"),
     path('checkout_req/process', checkout_req, name="checkout_req"),
-    path("dashboard", account_home, name="dashboard"),
+    path("dashboard/", account_home, name="dashboard"),
     path('dashboard/orders',orders,name="orders"),
+    path('dashboard/profile_edit', profile_edit,name="profile_edit"),
     path("dashboard/view_order/<int:order_id>", view_order, name="view_order"),
     path("dashboard/view_invoice/<int:invoice_id>", view_invoice,name="view_invoice"),
-    path("v2/license/strict2/activate2/",home,name="home")
 
 
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

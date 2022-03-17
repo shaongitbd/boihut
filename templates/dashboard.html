@@ -12,24 +12,25 @@
 <div class="row">
   <div class="col-4">
     <div class="list-group"  id="MyTab" role="tablist">
-      <a class="boihut-dashboard-menu-list list-group-item list-group-item-action active" data-toggle="list" href="#list-dashboard" role="tab" aria-controls="#list-dashboard">Home</a>
-      <a class="boihut-dashboard-menu-list list-group-item list-group-item-action" data-toggle="list" href="#list-orders" role="tab" aria-controls="list-dashboard">Orders</a>
-      <a class="boihut-dashboard-menu-list list-group-item list-group-item-action" data-toggle="list" href="#list-edit-profile" role="tab" aria-controls="messages">Edit Profile</a>
-      <a class="boihut-dashboard-menu-list list-group-item list-group-item-action" data-toggle="list" href="#list-change-password" role="tab" aria-controls="settings">Change Password</a>
-        <a class="boihut-dashboard-menu-list list-group-item list-group-item-action"  data-toggle="list" href="logout" role="tab" aria-controls="settings">Logout</a>
+      <a class="boihut-dashboard-menu-list list-group-item list-group-item-action active" data-toggle="list" href="{%url 'dashboard'%}" role="tab" aria-controls="list-dashboard">Home</a>
+      <a class="boihut-dashboard-menu-list list-group-item list-group-item-action" data-toggle="list" href="{%url 'orders'%}" role="tab" aria-controls="list-orders">Orders</a>
+      <a class="boihut-dashboard-menu-list list-group-item list-group-item-action" data-toggle="list" href="{%url 'profile_edit'%}" role="tab" aria-controls="messages">Edit Profile</a>
+        <a class="boihut-dashboard-menu-list list-group-item list-group-item-action"  data-toggle="list" href="{%url 'logout'%}" role="tab" aria-controls="settings">Logout</a>
     </div>
   </div>
-  <div class="col-8">
+
+    <div class="col-6">
+      <div class="tab-pane fade {%if request.path == '/dashboard/'%}show active{%endif%}" id="list-dashboard" role="tabpanel" aria-labelledby="list-dashboard">
+
+
+        Hello, {{first_name}} {{last_name}} . Hope you are having a good day? Looking for your orders take a look at order page. You can also edit your account information or change your password from the left menu </div>
+
+
+
+    <div class="tab-pane fade  {%if 'orders' in request.path%}show active{%endif%}" id="list-orders" role="tabpanel" aria-labelledby="list-orders"> Here is your recent orders
+
     <div class="tab-content" id="nav-tabContent">
       {%include 'messages.html' %}
-      {{request.path   }}
-
-      {%for order in order_id_list%}
-      <div>{{order.order_id}}</div>
-      {{order.status}}
-
-       {{order.date_created}}
-      {%endfor%}
 
       <table class="table table-hover">
   <thead>
@@ -45,7 +46,7 @@
       {%for order in order_id_list%}
 
       <th scope="row">{{order.order_id}}</th>
-      <td>Status</td>
+      <td>{{order.status}}</td>
       <td>{{order.date_created}}</td>
       <td><a href="dashboard/view_order/{{order.order_id}}"> View Order</a></td>
     </tr>
@@ -53,28 +54,55 @@
 
   </tbody>
 </table>
-      {%if '#list-edit-profile' in request.build_absolute_uri%}
-      <div class="tab-pane fade show active" id="list-dashboard" role="tabpanel" aria-labelledby="list-dashboard">
+        </div>
+      </div>
 
-        Hello, {{first_name}} {{last_name}} . Hope you are having a good day? Looking for your orders take a look at order page. You can also edit your account information or change your password from the left menu</div>
 
-      {%endif %}
-      {%if "#list-orders" in request.build_absolute_uri %}
-      <div class="tab-pane fade show active" id="list-orders" role="tabpanel" aria-labelledby="list-orders"> Here is your recent orders
+      <div class="tab-panel fade {%if 'profile_edit' in request.path%} show{%endif%}" id="list-edit-profile" role="tabpanel" aria-labelledby="list-edit-profile">
+      {%include 'messages.html' %}
+          <p class="text-center">Edit your account Information</p>
+
+      <div class="row">
+          <form action="/dashboard/profile_edit" method="POST">
+        {%csrf_token%}
+   <div class="form-group ">
+    <label for="first_name">First name</label>
+    <input type="text" value="{{request.user.first_name}}" class="form-control" name="first_name" id="first_name" aria-describedby="FirstNameHelp" placeholder="Enter Your First Name" required>
+  </div>
+<div class="form-group">
+    <label for="last_name">Last Name </label>
+    <input type="text" value="{{request.user.last_name}}" class="form-control" name="last_name" id="last_name" aria-describedby="LastNameHelp" placeholder="Enter Your Last Name" required>
+  </div>
+
+    <div class="form-group">
+    <label for="Email">Email</label>
+    <input type="email" value="{{request.user.email}}" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Enter Your Email Address" required>
+  </div>
+
+
+ <div class="form-group">
+    <label for="phone">Phone Number</label>
+    <input type="text" value="{{request.user.phone}}" class="form-control" name="phone" id="phone" placeholder="Enter Your Phone Number" required>
+  </div>
+
+<button type="submit" class="btn btn-primary" style="margin-top:30px;">Update</button>
+  </div>
+          <p class="text-center">Change Password</p>
+           <div class="form-group">
+    <label for="phone">Password</label>
+        <input type="password" class="form-control" name="password" id="password" placeholder="New Password" >
+        <input type="password" class="form-control" name="verify_password" id="verify_password" placeholder="Confirm New Password">
+        <button type="submit" class="btn btn-primary" style="margin-top:30px;">Submit Change</button>
+  </div>
+
+
+
 
       </div>
-      {%endif%}
-      {%if "#list-edit-profile" in request.build_absolute_uri%}
-      <div class="tab-pane fade show active" id="list-edit-profile" role="tabpanel" aria-labelledby="list-edit-profile">Edit your account Information
-      </div>
-      {%endif%}
 
-      {%if "#list-change-password" in request.path%}
-      <div class="tab-pane fade show active" id="list-change-password" role="tabpanel" aria-labelledby="list-change-password">
-          Change your account Password, be sure to use a password that you don't use on other websites.
-      {%endif%}
 
-      </div>
+
+
     </div>
   </div>
 

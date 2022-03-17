@@ -97,3 +97,18 @@ def account_home(request):
 
 
 
+def profile_edit(request):
+    if request.POST:
+
+        first_name = request.POST['first_name']
+        last_name = request.POST['last_name']
+        email = request.POST['email']
+        phone = request.POST['phone']
+        user = Account.objects.all().filter(username=request.user.username)
+        user.update(first_name=first_name,
+                  last_name=last_name,
+                  email=email,
+                  phone=phone)
+        messages.success(request,"Your Profile has been updated")
+
+    return render(request,"dashboard.html")
