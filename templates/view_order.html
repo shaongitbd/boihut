@@ -7,7 +7,7 @@
     <h3 class="row">
     Order #{{order_id}} </h3>
 
-<dv class="col-6">
+<div class="col-6">
   <div class="row">
     {{request.user.first_name}}
      {{request.user.last_name}}<br>
@@ -19,7 +19,7 @@
     Delivery Address: {{invoice.address}},{{invoice.city}},{{invoice.division}},{{invoice.zip}},{{invoice.country}}<br>
 
   </div>
-
+   <p class="text-center"><b>Order Details</b></p>
    <table class="table table-hover">
   <thead>
     <tr>
@@ -44,25 +44,27 @@
   </tbody>
 </table>
 
-    Invoice
+  <p class="text-center"><b>Invoice Details</b></p>
 
 <table class="table table-hover">
   <thead>
     <tr>
       <th scope="col">invoice id</th>
       <th scope="col">Total</th>
+      <th scope="col">Payment Method</th>
       <th scope="col">Transaction No</th>
       <th scope="col">Status</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      {%for order in order_items_list%}
+      {%for invoice in invoice_list%}
 
-      <th scope="row">{{order.order_item}}</th>
-        <td>{{order.order_item.price}}</td>
-      <td>{{order.order_quantity}}</td>
-        <td>{{order.order_price}}</td>
+      <th scope="row">{{invoice.invoice_id}} </th>
+      <td>{{invoice.total_price}}</td>
+      <td>{{invoice.transaction_method}}</td>
+      <td>{{invoice.transaction_id}}</td>
+        <td>{{invoice.invoice_status}}</td>
 
     </tr>
   {%endfor%}
@@ -70,13 +72,8 @@
   </tbody>
 </table>
 
-</dv>
-<div class="col-6">
-  Invoice ID: {{invoice.invoice_id}} <br>
-  Invoice Status: {{invoice.invoice_status}} <br>
-  Total price: {{invoice.total_price}} <br>
-
 </div>
+
     </div>
     </div>
 </div>
