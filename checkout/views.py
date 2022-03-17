@@ -34,8 +34,11 @@ def checkout_req(request):
 
 
             session = request.session.session_key
+
             cart = Cart.objects.get(cart_session=session)
+            print(cart)
             cart_items_list = CartItems.objects.all().filter(cart=cart)
+            print(cart_items_list)
             total = 0
             print(order_save)
 
@@ -78,10 +81,11 @@ def checkout_req(request):
                 city=city,
                 zip=zip,
                 country=country,
+
             )
             save_invoice.save()
             #updating order
-            message.success(request,"Your order has been successfully received.")
+            messages.success(request,"Your order has been successfully received.")
 
 
         else:

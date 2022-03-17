@@ -23,7 +23,19 @@ def add_to_cart(request, user_book):
 
 
     #user_book=Book.objects.get(slug=user_book)
-    session_aa = Cart.objects.get(cart_session=session)
+    try:
+      session_aa = Cart.objects.get(cart_session=session)
+    except:
+        session = request.session.session_key
+
+        cart_for_save = Cart.objects.create(
+            cart_session=session,
+        )
+        cart_for_save.save()
+
+
+
+
     op_book = Book.objects.get(slug=user_book)
 
 
@@ -50,7 +62,7 @@ def add_to_cart(request, user_book):
 
 
 
-    except ObjectDoesNotExist:
+    except:
         print("coming here")
 
         cartitem_save = CartItems.objects.create(

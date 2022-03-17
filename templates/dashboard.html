@@ -46,9 +46,9 @@
       {%for order in order_id_list%}
 
       <th scope="row">{{order.order_id}}</th>
-      <td>{{order.status}}</td>
+      <td>{{order.order_status}}</td>
       <td>{{order.date_created}}</td>
-      <td><a href="dashboard/view_order/{{order.order_id}}"> View Order</a></td>
+      <td><a href="/dashboard/view_order/{{order.order_id}}"> View Order</a></td>
     </tr>
   {%endfor%}
 

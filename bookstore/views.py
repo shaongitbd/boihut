@@ -3,6 +3,7 @@ from .models import Book
 from category.models import Category
 from checkout.models import order_list
 from checkout.models import order
+from checkout.models import invoice
 from accounts.models  import Account
 from checkout.models import invoice
 
@@ -81,10 +82,16 @@ def view_order(request, order_id):
 
           print(order_id)
           order_items_list = order_list.objects.all().filter(order_id=order_id)
+          invoice_details = invoice.objects.get(order_id=order_id)
+
+
 
           context={
+              "order_id":order_id,
 
               "order_items_list":order_items_list,
+              "invoice": invoice_details,
+
           }
           return render(request,"view_order.html",context=context)
 
