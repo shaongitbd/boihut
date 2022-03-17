@@ -37,7 +37,6 @@ grpcio==1.34.0
 gunicorn==20.1.0
 h11==0.9.0
 h2==3.2.0
-h5py==2.10.0
 hpack==3.0.0
 hstspreload==2021.12.1
 httpcore==0.9.1
