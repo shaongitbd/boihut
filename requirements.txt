@@ -107,3 +107,5 @@ Werkzeug==2.0.3
 whitenoise==6.0.0
 wrapt==1.13.3
 zipp==3.6.0
+dj-database-url
+psycopg2
