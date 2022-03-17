@@ -1,1 +1,1 @@
-web gunicorn boihut.wsgi:application --log-file -
+web: gunicorn boihut.wsgi
