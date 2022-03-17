@@ -2,6 +2,8 @@
 {%load static%}
 {%block content%}
 {%include 'messages.html'}
+  <div class="container" style="margin-top:150px;">
+      <div class="col-md-9" style="margin-top:20px;margin-bottom:40px;" >
 
 <form action="checkout_req/process" method="POST">
     {% csrf_token %}
@@ -39,14 +41,15 @@
   </div>
 
  <p class="register-infos text-center"> Payment Info </p>
-  <p id="register-infos"> Total Tk: XYZ </p>
+
       <p class="register-infos"> Our Bkash Number: 0184XXXXXXXX</p>
 
   <div class="form-group col-md-6">
     <label for="order_note">Bkash Payment </label>
-    <input type="text" class="form-control"  name="order_note" id="order_note" placeholder="Your bkash number and Transaction Id">
+    <input type="text" class="form-control"  name="transaction_id" id="transaction_id" placeholder="Your bkash Transaction Id">
+      <input type="text" class="form-control"  name="order_note" id="order_note" placeholder="Order Note(If any)">
       <button type="submit"> Submit </button>
   </div>
 </form>
-
+      </div></div>
 {%endblock content%}

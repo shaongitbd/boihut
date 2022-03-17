@@ -82,7 +82,7 @@ def view_order(request, order_id):
 
           print(order_id)
           order_items_list = order_list.objects.all().filter(order_id=order_id)
-          invoice_details = invoice.objects.get(order_id=order_id)
+          invoice_details = invoice.objects.all().filter(order_id=order_id)
 
 
 
@@ -90,7 +90,7 @@ def view_order(request, order_id):
               "order_id":order_id,
 
               "order_items_list":order_items_list,
-              "invoice": invoice_details,
+              "invoice_list": invoice_details,
 
           }
           return render(request,"view_order.html",context=context)
@@ -107,3 +107,5 @@ def view_invoice(request, invoice_id):
 
          }
          return render(request,"view_invoice.html",context=context)
+
+

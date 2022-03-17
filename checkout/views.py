@@ -68,6 +68,10 @@ def checkout_req(request):
             division = request.POST['division']
             zip = request.POST['zip']
             country = request.POST['country']
+            transaction_id = request.POST['transaction_id']
+            order_note = request.POST['order_note']
+
+
 
 
 
@@ -81,11 +85,20 @@ def checkout_req(request):
                 city=city,
                 zip=zip,
                 country=country,
+                transaction_id=transaction_id,
+                order_note=order_note,
+                transaction_method = 'bkash',
+                invoice_status="PENDING_CHECK",
+
 
             )
-            save_invoice.save()
-            #updating order
+            # updating order
+
+            order_status_update = order.objects.filter(order_id=order_save.order_id).update(order_status="PROCESSING")
+            # removing cart
+            cart.delete()
             messages.success(request,"Your order has been successfully received.")
+            return redirect("orders")
 
 
         else:

@@ -51,7 +51,8 @@ class invoice(models.Model):
               ("PENDING_PAY","Pending Payment"),
               ("REJECTED","Rejected"),
               ("FRAUD","Fraud"),
-              ("TIMEOUT","Timeout"))
+              ("TIMEOUT","Timeout"),
+              ("PENDING_CHECK","Pending Check"),)
 
 
     invoice_id = models.AutoField(primary_key=True)
@@ -71,6 +72,13 @@ class invoice(models.Model):
     division = models.CharField(max_length=60, blank=False)
     zip= models.CharField(max_length=60,blank=False)
     country = models.CharField(max_length=100,blank=True)
+    methods = [("bkash","Bkash"),("nagad","Nagad"),("roket","Rocket")]
+    transaction_method = models.CharField(max_length=100,blank=False,choices=methods)
+    transaction_id  = models.CharField(max_length=100,blank=False,unique=True)
+    order_note = models.CharField(max_length=500,blank=True)
+
+
+
 
 
     def __str__(self):
