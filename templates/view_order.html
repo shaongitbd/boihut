@@ -1,35 +1,85 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{%extends 'base.html'%}
+{%block content%}
+<div class="container" style="margin-top:50px;">
+    <div class="container" style="padding-top:60px; padding-bottom:20px;">
+    <h3 class="row">
+    Order #{{order_id}} </h3>
 
-<table class="table table-bordered">
+<dv class="col-6">
+  <div class="row">
+    {{request.user.first_name}}
+     {{request.user.last_name}}<br>
+     Mobile: {{request.user.phone}}<br>
+     Email: {{request.user.email}}<br>
+
+  </div>
+  <div class="row">
+    Delivery Address: {{invoice.address}},{{invoice.city}},{{invoice.division}},{{invoice.zip}},{{invoice.country}}<br>
+
+  </div>
+
+   <table class="table table-hover">
   <thead>
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">Item</th>
+      <th scope="col">Price Per item</th>
+      <th scope="col">Quantity</th>
+      <th scope="col">Price</th>
     </tr>
   </thead>
   <tbody>
-  {% for order_items in order_items_list%}
-
     <tr>
-      <th scope="row">{{order_items.order_item.title}}</th>
-      <td>{{order_items.order_quantity}}</td>
-      <td>{{order_items.order_price}}</td>
-      <td> {{ordder_items.}}</td>
+      {%for order in order_items_list%}
+
+      <th scope="row">{{order.order_item}}</th>
+        <td>{{order.order_item.price}}</td>
+      <td>{{order.order_quantity}}</td>
+        <td>{{order.order_price}}</td>
+
     </tr>
   {%endfor%}
 
   </tbody>
 </table>
 
+    Invoice
 
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">invoice id</th>
+      <th scope="col">Total</th>
+      <th scope="col">Transaction No</th>
+      <th scope="col">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      {%for order in order_items_list%}
 
+      <th scope="row">{{order.order_item}}</th>
+        <td>{{order.order_item.price}}</td>
+      <td>{{order.order_quantity}}</td>
+        <td>{{order.order_price}}</td>
+
+    </tr>
+  {%endfor%}
+
+  </tbody>
+</table>
+
+</dv>
+<div class="col-6">
+  Invoice ID: {{invoice.invoice_id}} <br>
+  Invoice Status: {{invoice.invoice_status}} <br>
+  Total price: {{invoice.total_price}} <br>
+
+</div>
+    </div>
+    </div>
+</div>
 </body>
+{%endblock content%}
 </html>
