@@ -3,6 +3,7 @@ from .models import AccountManager,Account
 from django.contrib import messages
 from django.contrib.auth import authenticate
 from django.contrib import auth
+from cart.models import Cart
 # Create your views here.
 
 
@@ -22,7 +23,7 @@ def register(request):
 
         if post_password != post_conf_password:
 
-            message.error(request, 'Password and Confirm Password Does not match')
+            messages.error(request, 'Password and Confirm Password Does not match')
             return redirect("register")
 
         if not check_username or not check_email:
@@ -54,6 +55,7 @@ def login(request):
      if request.user.is_authenticated:
          return redirect("dashboard")
      if request.POST:
+         session_old = request.session.session_key
          post_email = request.POST['email']
          post_password = request.POST['password']
 
@@ -63,8 +65,14 @@ def login(request):
          print(post_password)
          if user is not None:
              auth.login(request, user)
+             session_new = request.session.session_key
+             cart = Cart.objects.all().filter(cart_session=session_old)
+             cart.update(cart_session = session_new)
              messages.success(request, "You have been logged in.")
+
              return redirect('dashboard')
+
+
          else:
 
              messages.error(request, "Sorry your Email/Password don't match")
