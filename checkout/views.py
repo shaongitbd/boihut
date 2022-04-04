@@ -103,8 +103,7 @@ def checkout_req(request):
 
         else:
             return redirect("login")
-    else:
-        return redirect("register")
+
 
 
 def checkout_page(request):
