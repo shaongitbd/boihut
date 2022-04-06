@@ -9,7 +9,7 @@
 <a href="https://github.com/shaongitt/boihut/blob/master/LICENSE"><img src="https://img.shields.io/github/license/abhisheknaiidu/shaongitt/boihut" alt="License Badge"/></a>
 
 <h3 align="left"> Background: </h3>
-<p align="left"> <b>Boihut</b> is a a ecommerce book store built in Django as a first year university project By <b> Rubaiyat Sha</b> aka <b>shaongit</b> :bangladesh:	. It was an ambitious project aimed to increase my knowledge about django and python overall.
+<p align="left"> <b>Boihut</b> is a a ecommerce book store built in Django as a first year university project By <b> Siam </b> aka <b>shaongit</b> :bangladesh:	. It was an ambitious project aimed to increase my knowledge about django and python overall.
 
 <h3 align="left"> Features</p></h3>
 
@@ -25,7 +25,7 @@
 <h3 align="left">License: </h4>
 <p class="left">Warning: This project is licensed Under BSD-2 so use with proper credits.
 <h4 align="left"> Developed By :</h3>
-<p class="left"> Rubaiyat Sha
+<p class="left"> Siam
 
 <h4 class="left"> Contributors : </p>
 
