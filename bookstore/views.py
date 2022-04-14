@@ -10,15 +10,13 @@ from checkout.models import invoice
 categories_list = Category.objects.all()
 
 
-# :/ ektu beshi e kosto kora lage eida te
+#
 
 def home(request):
     books = Book.objects.all()[0:20]
     font_page_context = {
         'books': books,
          'categories_list': categories_list,
-          'agent':request.META['HTTP_USER_AGENT'],
-
     }
     return render(request, 'index.html',font_page_context)
 
@@ -39,13 +37,10 @@ def single_book(request, single_book_slug):
 
         #releated_categories = get_object_or_404(Category,slug=single_book_slug)
         releated_books = Book.objects.all().filter(category=book.category)[0:5]
-
-
         context = {
 
             'book': book,
              'related_books': releated_books,
-             'categories_list': categories_list,
 
         }
 
@@ -60,6 +55,7 @@ def search_result(request):
         print(books)
         context  = {
             'books':books,
+            'categories_list': categories_list,
         }
         return render(request, 'search_res.html', context)
 
@@ -73,8 +69,12 @@ def orders(request):
             context={
 
                 'order_id_list' : order_id,
+                'categories_list': categories_list,
             }
             return render(request,"dashboard.html",context)
+        else:
+            messages.error("Sorry, you need to be logged in to view your orders")
+            return redirect("login")
 
 
 def view_order(request, order_id):
@@ -91,9 +91,12 @@ def view_order(request, order_id):
 
               "order_items_list":order_items_list,
               "invoice_list": invoice_details,
+              'categories_list': categories_list,
 
           }
           return render(request,"view_order.html",context=context)
+      else:
+          return redirect('login')
 
 
 
@@ -104,8 +107,11 @@ def view_invoice(request, invoice_id):
          context = {
 
              'invoice':invoice_dat,
+             'categories_list': categories_list
 
          }
          return render(request,"view_invoice.html",context=context)
+     else:
+         return redirect("login")
 
 

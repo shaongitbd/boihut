@@ -23,9 +23,6 @@ class order(models.Model):
 
 
 
-
-
-
 class order_list(models.Model):
     order_id = models.ForeignKey(order, blank=False,on_delete=models.DO_NOTHING)
     order_item = models.ForeignKey(Book, blank=False,on_delete=models.DO_NOTHING)
@@ -76,9 +73,6 @@ class invoice(models.Model):
     transaction_method = models.CharField(max_length=100,blank=False,choices=methods)
     transaction_id  = models.CharField(max_length=100,blank=False,unique=True)
     order_note = models.CharField(max_length=500,blank=True)
-
-
-
 
 
     def __str__(self):
