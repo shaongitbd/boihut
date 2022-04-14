@@ -8,9 +8,7 @@ from cart.models import Cart
 
 
 def register(request):
-
     if request.POST:
-
         post_username = request.POST['username']
         post_password = request.POST['password']
         post_conf_password =request.POST['confirm_password']
@@ -20,7 +18,6 @@ def register(request):
         post_last_name = request.POST['last_name']
         check_username = Account.objects.all().filter(username=post_username)
         check_email = Account.objects.all().filter(email=post_email)
-
         if post_password != post_conf_password:
 
             messages.error(request, 'Password and Confirm Password Does not match')
@@ -43,7 +40,10 @@ def register(request):
             return redirect("login")
 
     else:
-        return render(request, 'register.html')
+        if request.user.is_authenticated:
+            return redirect('dashboard.html')
+        else:
+            return render(request, 'register.html')
 
 
 
@@ -58,7 +58,6 @@ def login(request):
          session_old = request.session.session_key
          post_email = request.POST['email']
          post_password = request.POST['password']
-
          user = auth.authenticate(email=post_email,password=post_password)
          print(user)
          print(post_email)
@@ -66,28 +65,30 @@ def login(request):
          if user is not None:
              auth.login(request, user)
              session_new = request.session.session_key
-             cart = Cart.objects.all().filter(cart_session=session_old)
-             cart.update(cart_session = session_new)
+             try:
+               cart = Cart.objects.all().filter(cart_session=session_old)
+               cart.update(cart_session = session_new)
+             except:
+                 pass
              messages.success(request, "You have been logged in.")
-
              return redirect('dashboard')
-
-
          else:
-
              messages.error(request, "Sorry your Email/Password don't match")
              return redirect('login')
-
-
 
      return render(request,"login.html")
 
 
 
+
 def logout(request):
-    auth.logout(request)
-    messages.success(request,"You have been logged out successfully.")
-    return redirect("home")
+    if request.user.is_authenticated:
+      auth.logout(request)
+      messages.success(request,"You have been logged out successfully.")
+      return redirect("home")
+    else:
+      messages.error(request,"Sorry you need to be logged in to do this action")
+      return redirect("login")
 
 
 
@@ -106,17 +107,21 @@ def account_home(request):
 
 
 def profile_edit(request):
-    if request.POST:
+    if request.user.is_authenticated:
+        if request.POST:
+            first_name = request.POST['first_name']
+            last_name = request.POST['last_name']
+            email = request.POST['email']
+            phone = request.POST['phone']
+            user = Account.objects.all().filter(username=request.user.username)
+            user.update(first_name=first_name,
+                        last_name=last_name,
+                        email=email,
+                        phone=phone)
+            messages.success(request, "Your Profile has been updated")
 
-        first_name = request.POST['first_name']
-        last_name = request.POST['last_name']
-        email = request.POST['email']
-        phone = request.POST['phone']
-        user = Account.objects.all().filter(username=request.user.username)
-        user.update(first_name=first_name,
-                  last_name=last_name,
-                  email=email,
-                  phone=phone)
-        messages.success(request,"Your Profile has been updated")
+        return render(request, "dashboard.html")
+    else:
+        messages.error(request,"Sorry, You need to be logged in to do this action.")
+        return redirect('login')
 
-    return render(request,"dashboard.html")

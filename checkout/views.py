@@ -14,7 +14,6 @@ def checkout_req(request):
             client = request.user
             print(client)
             order_note = request.POST['order_note']
-
             # Unsafe to grab total from get or post req
             # So, I think it's bettter for me to comment out this line.
             # But I could have used it because it's a university project
@@ -70,10 +69,6 @@ def checkout_req(request):
             country = request.POST['country']
             transaction_id = request.POST['transaction_id']
             order_note = request.POST['order_note']
-
-
-
-
 
             save_invoice = invoice.objects.create(
                 order_id=order_save,

@@ -9,7 +9,6 @@ class Cart(models.Model):
         return self.cart_session
 
 
-
 class CartItems(models.Model):
     cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
     book = models.ForeignKey(Book, on_delete=models.CASCADE)

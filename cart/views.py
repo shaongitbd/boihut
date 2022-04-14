@@ -10,44 +10,28 @@ from bookstore.models import Book
 def add_to_cart(request, user_book):
     session  = request.session.session_key
     print(session)
-
-
     if not session:
         session = request.session.create()
         session = request.session.session_key
-
         cart_for_save = Cart.objects.create(
           cart_session=session,
          )
         cart_for_save.save()
-
-
-    #user_book=Book.objects.get(slug=user_book)
     try:
       session_aa = Cart.objects.get(cart_session=session)
     except:
         session = request.session.session_key
-
         cart_for_save = Cart.objects.create(
             cart_session=session,
         )
         cart_for_save.save()
 
-
-
-
     op_book = Book.objects.get(slug=user_book)
 
-
-    #print(check_if_already_exits)
-
-    print("working")
     try:
         check_if_already_exits = CartItems.objects.get(cart=session_aa, book=op_book)
         print(check_if_already_exits)
-        print("updating")
         if check_if_already_exits:
-            print("checking update")
             op_book = Book.objects.get(slug=user_book)
             quantity_update = CartItems.objects.get(cart=session_aa, book=op_book)
             quantity_update = quantity_update.quantity + 1
@@ -58,13 +42,7 @@ def add_to_cart(request, user_book):
             )
             cartitem.quantity = cartitem.quantity + 1
             cartitem.save()
-
-
-
-
     except:
-        print("coming here")
-
         cartitem_save = CartItems.objects.create(
             cart=Cart.objects.get(cart_session=session),
             book=Book.objects.get(slug=user_book),
@@ -72,13 +50,9 @@ def add_to_cart(request, user_book):
             is_active=True,
         )
         cartitem_save.save()
-
-
-
-
-
-
     return redirect('cart')
+
+
 
 def update_cart_item(request, book_slug):
     if request.POST:
@@ -107,11 +81,8 @@ def delete_cart_item(request, book_slug):
     session = request.session.session_key
     my_cart = Cart.objects.get(cart_session=session)
     book_item = Book.objects.get(slug=book_slug)
-
     cart_items = CartItems.objects.all().filter(cart=my_cart,book=book_item)
-
     cart_items.delete()
-
     return redirect('cart')
 
 
@@ -127,7 +98,6 @@ def cart(request):
         'total':total,
 
     }
-
     return render(request, "cart.html", context)
 
 
