@@ -80,7 +80,7 @@ def login(request):
 
 
 
-
+@login_required(login_url="/login")
 def logout(request):
     if request.user.is_authenticated:
       auth.logout(request)
@@ -91,7 +91,7 @@ def logout(request):
       return redirect("login")
 
 
-
+@login_required(login_url="/login")
 def account_home(request):
     if request.user.is_authenticated:
         context={
@@ -105,7 +105,7 @@ def account_home(request):
 
 
 
-
+@login_required(login_url="/login")
 def profile_edit(request):
     if request.user.is_authenticated:
         if request.POST:
