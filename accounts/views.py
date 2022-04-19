@@ -3,11 +3,34 @@ from .models import AccountManager,Account
 from django.contrib import messages
 from django.contrib.auth import authenticate
 from django.contrib import auth
+from django.contrib.auth.decorators import login_required
 from cart.models import Cart
 # Create your views here.
 
 
 def register(request):
+    special_char_list = r"!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
+    email_special_char_list = r"!\"#$%&'()*+,/:;<=>?@[\]^`{|}~"
+    def num_checker(string):
+        return any(i.isdigit() for i in string)
+
+    def special_char_checker(string):
+        for i in string:
+          if i in special_char_list:
+              return True
+        return False
+
+    def email_special_char_checker(string):
+        if "@" in string:
+            email = string.split("@", "")
+            for i in email[0]:
+                if i in special_char_list:
+                    return True
+            return False
+        else:
+            return True
+
+
     if request.POST:
         post_username = request.POST['username']
         post_password = request.POST['password']
@@ -18,9 +41,45 @@ def register(request):
         post_last_name = request.POST['last_name']
         check_username = Account.objects.all().filter(username=post_username)
         check_email = Account.objects.all().filter(email=post_email)
+        check_phone = Account.objects.filter(phone=post_phone).exists()
+
+        # Checking for number
+
+        if num_checker(post_first_name)==True:
+            messages.error(request, "Sorry, First Name can't contain number")
+            return redirect("register")
+
+        if num_checker(post_last_name) == True:
+            messages.error(request, "Sorry, Last Name can't contain number")
+            return redirect("register")
+
+        # Checking for special character
+
+        if special_char_checker(post_first_name):
+            messages.error(request, "Sorry, First Name can't contain a special character.")
+            return redirect("register")
+
+
+        if special_char_checker(post_last_name):
+            messages.error(request,"Sorry, Last Name can't contain a special character.")
+            return redirect("register")
+
+        if special_char_checker(post_username):
+            messages.error(request, "Sorry, Username can't contain a special character.")
+            return redirect("register")
+
+        if email_special_char_checker(post_username):
+            messages.error(request, "Sorry, Email can't contain a special character.")
+            return redirect("register")
+
+
+
         if post_password != post_conf_password:
 
             messages.error(request, 'Password and Confirm Password Does not match')
+            return redirect("register")
+        if check_phone ==True:
+            messages.error(request,"An user with the phone number already exits.")
             return redirect("register")
 
         if not check_username or not check_email:
@@ -80,7 +139,7 @@ def login(request):
 
 
 
-
+@login_required(login_url="/login")
 def logout(request):
     if request.user.is_authenticated:
       auth.logout(request)
@@ -91,7 +150,7 @@ def logout(request):
       return redirect("login")
 
 
-
+@login_required(login_url="/login")
 def account_home(request):
     if request.user.is_authenticated:
         context={
@@ -105,7 +164,7 @@ def account_home(request):
 
 
 
-
+@login_required(login_url="/login")
 def profile_edit(request):
     if request.user.is_authenticated:
         if request.POST:

@@ -4,13 +4,27 @@ from django.contrib import auth,messages
 from cart.models import Cart,CartItems
 from .models import order,order_list,order_note_admin,invoice
 from bookstore.models import Book
+from django.contrib.auth.decorators import  login_required
 
+@login_required(login_url="/login")
 def checkout_req(request):
     if request.POST:
         req_user = request.user
 
         if req_user.is_authenticated:
+
+            #checking if transaction ID alreay exits in db
+
+            transaction_id = request.POST['transaction_id']
+            invoice_exits = invoice.objects.filter(transaction_id=transaction_id).exists()
+
+            if invoice_exits == True:
+                messages.error(request,"Sorry, transaction Id alreay exits.")
+                return redirect("checkout_page")
+
+
             # working on order model
+
             client = request.user
             print(client)
             order_note = request.POST['order_note']
@@ -67,8 +81,10 @@ def checkout_req(request):
             division = request.POST['division']
             zip = request.POST['zip']
             country = request.POST['country']
-            transaction_id = request.POST['transaction_id']
             order_note = request.POST['order_note']
+
+
+
 
             save_invoice = invoice.objects.create(
                 order_id=order_save,
