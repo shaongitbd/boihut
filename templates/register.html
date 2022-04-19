@@ -1,12 +1,13 @@
 {%extends 'base.html'%}
 {%block content%}
-
+<title> User Registration </title>
   <div class="container" style="margin-top:150px;">
       <div class="col-md-9" style="margin-top:20px;margin-bottom:40px;" >
     {%include 'messages.html'%} </div>
 
      <form action="/register" method="POST">
         {%csrf_token%}
+        
   <div class="row">
   <p class="register-infos text-center">Registration  Info's:  </p>
    <div class="form-group col-md-6">
