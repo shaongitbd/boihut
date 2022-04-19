@@ -373,8 +373,8 @@ a:hover {
 
 .footer{
 margin-top:80px;
-background: #2C2C2C;
-padding-top: 36px;
+background: #181818;
+padding-top: 29px;
 padding-bottom: 20px
 
 }
@@ -385,46 +385,44 @@ padding-bottom:50px;
 
 }
 
-.footer-link{
-
+.footer-link {
     font-family: Roboto;
     font-style: normal;
     font-weight: normal;
-    font-size: 17px;
-    line-height: 178.7%;
-    letter-spacing: 0.045em;
+    font-size: 16px;
+    line-height: 141.7%;
+    letter-spacing: 0.05em;
     color: #FFFFFF;
-
 }
+
+
 .footer-useful{
 
-    font-family: Roboto;
+ font-family: Roboto;
     font-style: normal;
-    font-weight: 600;
-    font-size: 19px;
+    font-weight: 500;
+    font-size: 15px;
     line-height: 178.7%;
     letter-spacing: 0.045em;
     color: #FFFFFF;
 
-
 }
 
-p.footer-about{
-font-family: Roboto;
-font-style: normal;
-font-weight: normal;
-font-size: 16px;
-
-letter-spacing: 0.015em;
-
-color: #FFFFFF;
-line-height: 176.69%;
-
-
+p.footer-about {
+    font-family: Roboto;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 15px;
+    letter-spacing: 0.6px;
+    color: #FFFFFF;
+    line-height: 144.69%;
 }
+
+
 .foooter-copyright{
 
 background: #5A5A5A;
+    height: 38px;
 }
 
 

@@ -7,29 +7,29 @@ from django.contrib.auth.decorators import login_required
 from cart.models import Cart
 # Create your views here.
 
+special_char_list = r"!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
+email_special_char_list = r"!\"#$%&'()*+,/:;<=>?@[\]^`{|}~"
+def num_checker(string):
+    return any(i.isdigit() for i in string)
+
+def special_char_checker(string):
+    for i in string:
+      if i in special_char_list:
+          return True
+    return False
+
+def email_special_char_checker(string):
+    if "@" in string:
+        email = string.split("@", "")
+        for i in email[0]:
+            if i in special_char_list:
+                return True
+        return False
+    else:
+        return True
+
 
 def register(request):
-    special_char_list = r"!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
-    email_special_char_list = r"!\"#$%&'()*+,/:;<=>?@[\]^`{|}~"
-    def num_checker(string):
-        return any(i.isdigit() for i in string)
-
-    def special_char_checker(string):
-        for i in string:
-          if i in special_char_list:
-              return True
-        return False
-
-    def email_special_char_checker(string):
-        if "@" in string:
-            email = string.split("@", "")
-            for i in email[0]:
-                if i in special_char_list:
-                    return True
-            return False
-        else:
-            return True
-
 
     if request.POST:
         post_username = request.POST['username']
@@ -172,6 +172,33 @@ def profile_edit(request):
             last_name = request.POST['last_name']
             email = request.POST['email']
             phone = request.POST['phone']
+
+            # Checking for numbers
+
+            if num_checker(first_name) == True:
+                messages.error(request, "Sorry, First Name can't contain number.")
+                return redirect("register")
+
+            if num_checker(last_name) == True:
+                messages.error(request, "Sorry, Last Name can't contain number.")
+                return redirect("register")
+
+            # Checking for special character
+
+            if special_char_checker(first_name):
+                messages.error(request, "Sorry, First Name can't contain a special character.")
+                return redirect("register")
+
+            if special_char_checker(last_name):
+                messages.error(request, "Sorry, Last Name can't contain a special character.")
+                return redirect("register")
+
+            if email_special_char_checker(email):
+                messages.error(request, "Sorry, Email can't contain a special character.")
+                return redirect("register")
+
+
+
             user = Account.objects.all().filter(username=request.user.username)
             user.update(first_name=first_name,
                         last_name=last_name,
@@ -180,6 +207,7 @@ def profile_edit(request):
             messages.success(request, "Your Profile has been updated")
 
         return render(request, "dashboard.html")
+
     else:
         messages.error(request,"Sorry, You need to be logged in to do this action.")
         return redirect('login')
