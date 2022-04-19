@@ -144,13 +144,7 @@ def checkout_req(request):
                 messages.error(request, "Sorry, Division can't contain a special character.")
                 return redirect("checkout_page")
 
-            if email_special_char_checker(city):
-                messages.error(request, "Sorry, City  can't contain a special character.")
-                return redirect("checkout_page")
 
-            if email_special_char_checker(country):
-                messages.error(request, "Sorry, Country can't contain a special character.")
-                return redirect("checkout_page")
 
             save_invoice = invoice.objects.create(
                 order_id=order_save,
@@ -175,8 +169,9 @@ def checkout_req(request):
             # removing cart
             cart.delete()
             # decreasing stock
-            stocks_available = Book.objects.get(title=item.book)
-            stocks_available.update(stocks=stocks_available)
+            stocks_now = Book.objects.get(title=item.book)
+            stocks_now.stocks = stocks_now.stocks-1
+            stocks_now.save()
             messages.success(request,"Your order has been successfully received.")
             return redirect("orders")
 
