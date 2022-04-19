@@ -3,6 +3,7 @@ from .models import AccountManager,Account
 from django.contrib import messages
 from django.contrib.auth import authenticate
 from django.contrib import auth
+from django.contrib.auth.decorators import login_required
 from cart.models import Cart
 # Create your views here.
 
