@@ -4,7 +4,9 @@ from django.contrib import auth,messages
 from cart.models import Cart,CartItems
 from .models import order,order_list,order_note_admin,invoice
 from bookstore.models import Book
+from django.contrib.auth.decorators import  login_required
 
+@login_required(login_url="/login")
 def checkout_req(request):
     if request.POST:
         req_user = request.user
