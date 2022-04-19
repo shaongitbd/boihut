@@ -174,6 +174,9 @@ def checkout_req(request):
             order_status_update = order.objects.filter(order_id=order_save.order_id).update(order_status="PROCESSING")
             # removing cart
             cart.delete()
+            # decreasing stock
+            stocks_available = Book.objects.get(title=item.book)
+            stocks_available.update(stocks=stocks_available)
             messages.success(request,"Your order has been successfully received.")
             return redirect("orders")
 
