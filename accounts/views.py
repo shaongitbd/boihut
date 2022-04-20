@@ -206,7 +206,7 @@ def profile_edit(request):
                         phone=phone)
             messages.success(request, "Your Profile has been updated")
 
-        return render(request, "dashboard.html")
+        return render(request, "edit_profile.html")
 
     else:
         messages.error(request,"Sorry, You need to be logged in to do this action.")
