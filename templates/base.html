@@ -18,69 +18,26 @@
 
 
 
+<nav class="navbar sticky-top navbar-expand-lg navbar-light">
+    <div class="container">
+  <a class="navbar-brand" href="#"><img src="{%static 'images/logo.png'%}"/></a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+    <div class="navbar-nav ms-auto">
+      <a class="nav-item nav-link active" href="">Home <span class="sr-only">(current)</span></a>
+      <a class="nav-item nav-link" href="#">Categories</a>
+      <a class="nav-item nav-link" href="contact">Contact US </a>
+      <a class="nav-item nav-link" href="login"> <i class="fa-solid fa-user"></i> </a>
+        <a class="nav-item nav-link" href="cart"> <i class="fa-solid fa-cart-shopping"></i> </a>
+
+    </div>
+  </div>
+</nav>
 
 <body>
-<header>
-   <nav class="navbar navbar-zero navbar-expand-lg">
-       <div class="container">
 
-           <div class="navbar-brand"><a href="/"><img src="{% static 'images/logo.png' %}"/></a></div>
-       <div class="ms-auto">
-       <form class="form-inline ">
-       <div class="input-group form-container">
-           <input class="form-control search-input mr-sm-2 ms-left" name="query" type="query" placeholder="Search" aria-label="Search">
-            <button class="custom-search-button btn btn-search"  type="submit"><i class="fas fa-search"></i></button>
-       </div> </form>
-       </div></div>
-   </nav>
-
-    <nav class="navbar navbar-expand-lg">
-
-
-        <div class="container container-fluid header-last text-center">
-
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggle" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle">
-        <span class="navbar-togglers-icon"> <i class="fas fa-bars"></i> </span>
-
-        </button>
-        <div class="collapse navbar-collapse" id="navbarToggle">
-        <ul class="navbar-nav text-center">
-            <li class="nav-item"> <a class="nav-link active" href="/"><i class="fas fa-home"></i> Home</a> </li>
-
-
-            <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="fas fa-bars"></i> Categories</a></a>
-
-            <ul class="dropdown-menu">
-                {%for category in categories_list%}
-            <li><a class="dropdown-item" href="/category/{{category.slug}}"><i class="fas fa-user"></i>{{category}}</a></li>
-                {%endfor%}
-
-           </ul>
-
-            <li class="nav-item"> <a class="nav-link" href="/contact"><i class="fas fa-address-book"></i> Contact Us</a> </li>
-
-
-        </ul>
-
-            <ul class="navbar-nav ms-auto">
-
-           <li class="nav-item dropdown">
-           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="/dashboard" role="button" aria-expanded="false"><i class="fas fa-user"></i>Account</a></a>
-           <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="/login">Login</a></li>
-            <li><a class="dropdown-item" href="/register">Register</a></li>
-
-           </ul>
-  </li>
-
-
-
-        </ul>
-        </div>
-        </div>
-
-    </nav>
-</header>
 {%block content %}
 
 
@@ -92,13 +49,14 @@
 
 
 <footer>
-<div class="footer">
+<div class="footer" style="background:url({%static 'images/footer-banner.png'%})">
 <div class="container footer-container p-0">
 
     <div class="footer-row row">
     <div class="footer-col col-md-3"><div class="text-center">
         <img src="{%static 'images/logo.png'%}" style="padding-bottom:28px;"/></div>
         <p class="footer-about "> BD-Ebook Buy your favorite books online without any hassle.</p>
+        <p class="social-icons"><i class="fa-brands fa-facebook fa-2x"></i> <i class="fa-brands fa-twitter fa-2x"></i>  <i class="fa-brands fa-instagram fa-2x"></i>  <i class="fa-brands fa-youtube fa-2x"></i>  <i class="fa-brands fa-discord fa-2x"></i> </p>
 
     </div>
     <div class="footer-col col-md-3">
