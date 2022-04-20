@@ -261,12 +261,7 @@ background:grey;
 
 
 }
-.custom-contact-css{
 
-    margin-top: 24px;
-    margin-bottom: 24px;
-    margin-left: 23px;
-}
 .fa-user-contact{
 font-size:85px;
 
@@ -668,4 +663,11 @@ color: #73aa47;
 
 .container-fluid.navbar-container, .navbar-brand {
   padding-left: 0;
+}
+
+.contact-details{
+color: #5e5e5e;
+font-family: Roboto;
+font-size:15px;
+letter-spacing: 1px;
 }

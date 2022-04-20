@@ -144,7 +144,7 @@ def logout(request):
     if request.user.is_authenticated:
       auth.logout(request)
       messages.success(request,"You have been logged out successfully.")
-      return redirect("home")
+      return redirect("login")
     else:
       messages.error(request,"Sorry you need to be logged in to do this action")
       return redirect("login")
