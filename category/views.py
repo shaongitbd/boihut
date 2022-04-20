@@ -11,7 +11,13 @@ def category(request, cat_slug=None):
     categories = None
     all_books = Paginator(Book.objects.all(),20)
     page = request.GET.get('page')
-    books = all_books.page(page)
+
+    try:
+        books = all_books.page(page)
+    except PageNotAnInteger:
+        books = all_books.page(1)
+    except EmptyPage:
+        books = all_books.page(1)
 
     context = {
         'books': books,
