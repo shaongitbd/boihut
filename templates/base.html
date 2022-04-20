@@ -18,22 +18,54 @@
 
 
 
-<nav class="navbar sticky-top navbar-expand-lg navbar-light">
+<nav class="navbar sticky-top navbar-expand-lg ">
     <div class="container">
   <a class="navbar-brand" href="#"><img src="{%static 'images/logo.png'%}"/></a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
-  <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+  <div class="collapse navbar-collapse" id="navbarResponsive">
     <div class="navbar-nav ms-auto">
       <a class="nav-item nav-link active" href="">Home <span class="sr-only">(current)</span></a>
-      <a class="nav-item nav-link" href="#">Categories</a>
-      <a class="nav-item nav-link" href="contact">Contact US </a>
-      <a class="nav-item nav-link" href="login"> <i class="fa-solid fa-user"></i> </a>
-        <a class="nav-item nav-link" href="cart"> <i class="fa-solid fa-cart-shopping"></i> </a>
 
+      <li class="nav-item dropdown">
+           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false">Category</a></a>
+           <ul class="dropdown-menu">
+               {%for category in categories%}
+            <li><a class="dropdown-item" href="/category/{{category.slug}}">{{category.category_name}}</a></li>
+             {%endfor%}
+
+           </ul>
+  </li>
+
+
+
+
+      <a class="nav-item nav-link" href="/contact">Contact US </a>
+
+      <li class="nav-item dropdown">
+           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-expanded="false"><i class="fa-solid fa-user"></i> </a>
+           <ul class="dropdown-menu">
+               {%if user.is_authenticated%}
+               <li><a class="dropdown-item" href="/dashboard">Dashboard</a></li>
+               <li><a class="dropdown-item" href="/dashboard/orders">View Orders</a></li>
+               <li><a class="dropdown-item" href="/dashboard/profile_edit">Edit Profile</a></li>
+               {%else%}
+               <li><a class="dropdown-item" href="/login">Login</a></li>
+               <li><a class="dropdown-item" href="/register">Register</a></li>
+               {%endif%}
+
+
+           </ul>
+  </li>
+
+
+
+
+        <a class="nav-item nav-link" href="/cart"> <i class="fa-solid fa-cart-shopping"></i>   {{total_cart_items}} </a>
+</div>
     </div>
-  </div>
+  </div></div>
 </nav>
 
 <body>
@@ -49,7 +81,7 @@
 
 
 <footer>
-<div class="footer" style="background:url({%static 'images/footer-banner.png'%})">
+<div class="footer" style="background:url({%static 'images/footer-banner.png'%});position: relative;">
 <div class="container footer-container p-0">
 
     <div class="footer-row row">
@@ -89,12 +121,14 @@
 
 </div>
 
-<div class="footer-copyright" style="background: #444444;height:20px">
+<div class="footer-copyright" style="background: #444444;height:40px">
 
     <div class="row" style="height: 38px;">
         <p class="footer-copyright-text text-center"> Copyright 2022 by Siam All right reserved. </p>
     </div>
 </div>
+
+
 
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
