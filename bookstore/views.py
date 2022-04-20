@@ -8,13 +8,16 @@ from accounts.models  import Account
 from checkout.models import invoice
 from django.contrib import messages
 from django.contrib.auth.decorators import  login_required
+from django.core.paginator import Paginator,EmptyPage,PageNotAnInteger
 
 categories_list = Category.objects.all()
 
 
-#
+#adding paging
+
 
 def home(request):
+
     books = Book.objects.all()[0:20]
     font_page_context = {
         'books': books,
@@ -65,11 +68,22 @@ def orders(request):
         if request.user.is_authenticated:
             user = Account.objects.get(email=request.user.email)
             order_id = order.objects.all().filter(client=user)
+
+            all_orders = Paginator(order.objects.all().filter(client=user), 10)
+            page = request.GET.get('page')
+
+            try:
+                orders = all_orders.page(page)
+            except PageNotAnInteger:
+                orders = all_orders.page(1)
+            except EmptyPage:
+                orders=  all_orders.page(all_orders.num_pages)
+
             context={
 
-                'order_id_list' : order_id,
+                'order_id_list' : orders,
             }
-            return render(request,"dashboard.html",context)
+            return render(request,"list-orders.html",context)
         else:
             messages.error("Sorry, you need to be logged in to view your orders")
             return redirect("login")

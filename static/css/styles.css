@@ -630,8 +630,8 @@ margin-top:39px;
 }
 
 .navbar{
-    padding-top: 27px;
-    padding-bottom: 23px;
+    padding-top: 7px;
+    padding-bottom: 9px;
     background:linear-gradient(0deg, rgba(24, 24, 24, 0.2), rgba(24, 24, 24, 0.2)), linear-gradient(0deg, rgba(14, 40, 16, 0.2), rgba(14, 40, 16, 0.2)), #3E3838;;
 
 
@@ -688,4 +688,44 @@ h3.default-style{
     font-weight: 700;
     line-height: 32px;
 
+}
+
+.list-group-item.active {
+    z-index: 2;
+    color: #fff;
+    background-color: none !important;
+    border-color: none !important;
+}
+
+.list-group-item{
+border: none !important;
+padding-top: 0.6rem;
+padding-bottom:0.6rem;
+padding-left:0rem;
+padding-right:0rem;
+background: none!important;
+border-color: none!important;
+color:rgba(239, 239, 239, 0.9);
+padding: 10px 4px;
+}
+
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #6a9d42;
+    border-color: none!important;
+    }
+
+.page-link {
+    position: relative;
+    display: block;
+    color: #000000;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+
+    }
+
+.page-item.active .page-link{
+border-color: #6a9d42;
 }
