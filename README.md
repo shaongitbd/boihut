@@ -24,9 +24,5 @@
 
 <h3 align="left">License: </h4>
 <p class="left">Warning: This project is licensed Under BSD-2 so use with proper credits.
-<h4 align="left"> Developed By :</h3>
-<p class="left"> Siam
-
-<h4 class="left"> Contributors : </p>
 
 
