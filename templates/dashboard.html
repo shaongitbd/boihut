@@ -4,21 +4,8 @@
 
 {%block content%}
 <title> User Dashboard</title>
-<section>
-<div class="container" style="margin-top:50px;">
-    <div class="container" style="padding-top:60px; padding-bottom:20px;">
-    <div class="row">
 
-<div class="row">
-  <div class="col-4">
-    <div class="list-group"  id="MyTab" role="tablist">
-      <a class="boihut-dashboard-menu-list list-group-item list-group-item-action active" data-toggle="list" href="{%url 'dashboard'%}" role="tab" aria-controls="list-dashboard">Home</a>
-      <a class="boihut-dashboard-menu-list list-group-item list-group-item-action" data-toggle="list" href="{%url 'orders'%}" role="tab" aria-controls="list-orders">Orders</a>
-      <a class="boihut-dashboard-menu-list list-group-item list-group-item-action" data-toggle="list" href="{%url 'profile_edit'%}" role="tab" aria-controls="messages">Edit Profile</a>
-        <a class="boihut-dashboard-menu-list list-group-item list-group-item-action"  data-toggle="list" href="{%url 'logout'%}" role="tab" aria-controls="settings">Logout</a>
-    </div>
-  </div>
-
+{%include 'dashboard-menu.html'%}
     <div class="col-6">
       <div class="tab-pane fade {%if request.path == '/dashboard/'%}show active{%endif%}" id="list-dashboard" role="tabpanel" aria-labelledby="list-dashboard">
 
@@ -56,6 +43,7 @@
 </table>
         </div>
       </div>
+
 
 
       <div class="tab-panel fade {%if 'profile_edit' in request.path%} show{%endif%}" id="list-edit-profile" role="tabpanel" aria-labelledby="list-edit-profile">

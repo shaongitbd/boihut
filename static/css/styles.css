@@ -56,13 +56,7 @@ border-radius: 0px;
 
 }
 
-.navbar-brand{
-  position: absolute;
-  left: 50%;
-   margin-left: -50px !important;
-  display: block;
 
-}
 
 .fa-address-book{
 padding-right:3px;
@@ -267,12 +261,7 @@ background:grey;
 
 
 }
-.custom-contact-css{
 
-    margin-top: 24px;
-    margin-bottom: 24px;
-    margin-left: 23px;
-}
 .fa-user-contact{
 font-size:85px;
 
@@ -604,32 +593,45 @@ background:
 
 }
 
-.button-buy{
-background: rgba(113, 200, 56, 0.67);
-opacity: 0.88;
-width: 140.14px;
-height: 42px;
-border-radius: 3px;
-border: none;
-outline: none;
+.button-buy {
+    background: rgb(46 47 43);
+    opacity: 0.88;
+    width: 147.14px;
+    height: 44px;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    color: white;
+    margin-right: 40px;
+    border: 1px solid;
+    font-family: roboto;
+    font-size: 19px;
+    letter-spacing: 2px;
+    line-height: 30px;
 }
-.button-shop{
-background: #414141;
-opacity: 0.88;
-width: 140.14px;
-height: 42px;
-border-radius: 3px;
-border: none;
-outline: none;
+
+.button-shop {
+    background: #72aa46;
+    opacity: 2.88;
+    width: 148px;
+    height: 44px;
+    border-radius: 3px;
+    border: none;
+    outline: none;
+    font-family: roboto;
+    font-size: 19px;
+    letter-spacing: 2px;
+    line-height: 30px;
 }
+
 p.lead{
 margin-top:39px;
 
 }
 
 .navbar{
-    padding-top: 27px;
-    padding-bottom: 23px;
+    padding-top: 7px;
+    padding-bottom: 9px;
     background:linear-gradient(0deg, rgba(24, 24, 24, 0.2), rgba(24, 24, 24, 0.2)), linear-gradient(0deg, rgba(14, 40, 16, 0.2), rgba(14, 40, 16, 0.2)), #3E3838;;
 
 
@@ -657,4 +659,73 @@ letter-spacing:1px;
 
 .text-green{
 color: #73aa47;
+}
+
+.container-fluid.navbar-container, .navbar-brand {
+  padding-left: 0;
+}
+
+.contact-details{
+color: #5e5e5e;
+font-family: Roboto;
+font-size:15px;
+letter-spacing: 1px;
+}
+
+p.default-style{
+    color: #555555;
+    font-family: "Roboto", Sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: -0.4px
+
+}
+
+h3.default-style{
+    color: #458f0b;
+    font-family: "Poppins", Sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+
+}
+
+.list-group-item.active {
+    z-index: 2;
+    color: #fff;
+    background-color: none !important;
+    border-color: none !important;
+}
+
+.list-group-item{
+border: none !important;
+padding-top: 0.6rem;
+padding-bottom:0.6rem;
+padding-left:0rem;
+padding-right:0rem;
+background: none!important;
+border-color: none!important;
+color:rgba(239, 239, 239, 0.9);
+padding: 10px 4px;
+}
+
+.page-item.active .page-link {
+    z-index: 3;
+    color: #fff;
+    background-color: #6a9d42;
+    border-color: none!important;
+    }
+
+.page-link {
+    position: relative;
+    display: block;
+    color: #000000;
+    text-decoration: none;
+    background-color: #fff;
+    border: 1px solid #dee2e6;
+
+    }
+
+.page-item.active .page-link{
+border-color: #6a9d42;
 }

@@ -1,0 +1,68 @@
+{%extends 'dashboard-base.html'%}
+{%load static%}
+
+{%block content%}
+
+ <div class="row" >
+{%include 'dashboard-menu.html'%}
+ <div class="tab-content col-9 " style="margin-top:60px;margin-left:30px;margin-right:20px">
+
+<h3 class="default-style"> Your Orders List </h3><hr>
+     <p class="default-style">Your can check your placed orders from bellow.If you have a problem with any of your order please let us know though live char or email. We will try to help you as early as possible.</p>
+
+      <table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Order ID</th>
+      <th scope="col">Status</th>
+      <th scope="col">Date Created</th>
+      <th scope="col">Order Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      {%for order in order_id_list%}
+
+      <th scope="row">{{order.order_id}}</th>
+      <td>{{order.order_status}}</td>
+      <td>{{order.date_created}}</td>
+      <td><a href="/dashboard/view_order/{{order.order_id}}"> View Order</a></td>
+    </tr>
+  {%endfor%}
+
+  </tbody>
+
+</table>
+     <ul class="pagination">
+    <li class="page-item">
+        {%if order_id_list.has_previous %}
+        <li class="page-item"><a href="/dashboard/orders?page=1" class="page-link" href="">First</a></li>
+      <a class="page-link" href="/dashboard/orders?page={{order_id_list.previous_page_number}}" tabindex="-1">{{order_id_list.previous_page_number}}</a>
+    </li>
+
+    {%else%}
+         <li class="page-item disabled">
+             <a class="page-link " href="#">First </a></li>
+
+
+    {%endif%}
+
+         <li class="page-item active">
+      <a class="page-link  text-decoration-none" href="#">{{order_id_list.number}} <span class="sr-only">(current)</span></a>
+    </li>
+
+         {%if order_id_list.has_next %}
+    <li class="page-item">
+      <a class="page-link" href="/dashboard/orders?page={{order_id_list.next_page_number}}"> {{order_id_list.next_page_number}}</a>
+      <li class="page-item">
+       <a class="page-link" href="/dashboard/orders?page={{order_id_list.paginator.num_pages}}">Last </a>
+      </li>
+    </li>
+         {%else%}
+         <li class="page-item disabled">
+             <a class="page-link " href="#">Last </a></li>
+         {%endif%}
+  </ul>
+        </div>
+ </div>
+{%endblock content%}

@@ -144,7 +144,7 @@ def logout(request):
     if request.user.is_authenticated:
       auth.logout(request)
       messages.success(request,"You have been logged out successfully.")
-      return redirect("home")
+      return redirect("login")
     else:
       messages.error(request,"Sorry you need to be logged in to do this action")
       return redirect("login")
@@ -206,9 +206,12 @@ def profile_edit(request):
                         phone=phone)
             messages.success(request, "Your Profile has been updated")
 
-        return render(request, "dashboard.html")
+        return render(request, "edit_profile.html")
 
     else:
         messages.error(request,"Sorry, You need to be logged in to do this action.")
         return redirect('login')
 
+
+def change_pwd(request):
+    return render(request,"change_password.html")
