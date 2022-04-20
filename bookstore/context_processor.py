@@ -6,6 +6,9 @@ def header_infos(request):
     session = request.session.session_key
     total_cart_items = 0
     try:
+        if not session:
+            request.session.create()
+            session = request.session.session_key
 
         cartitem = CartItems.objects.all().filter(
             cart=Cart.objects.get(cart_session=session)

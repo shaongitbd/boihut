@@ -671,3 +671,21 @@ font-family: Roboto;
 font-size:15px;
 letter-spacing: 1px;
 }
+
+p.default-style{
+    color: #555555;
+    font-family: "Roboto", Sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: -0.4px
+
+}
+
+h3.default-style{
+    color: #458f0b;
+    font-family: "Poppins", Sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 32px;
+
+}
