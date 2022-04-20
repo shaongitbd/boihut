@@ -212,3 +212,6 @@ def profile_edit(request):
         messages.error(request,"Sorry, You need to be logged in to do this action.")
         return redirect('login')
 
+
+def change_pwd(request):
+    return render(request,"change_password.html")

@@ -14,7 +14,6 @@
 <div class="tab-panel fade {%if 'profile_edit' in request.path%} show{%endif%}" id="list-edit-profile" role="tabpanel" aria-labelledby="list-edit-profile">
       {%include 'messages.html' %}
 
-    <p class="default-style register-infos text-left"><b>Edit your account Information</b></p>
 
       <div class="row">
           <form action="/dashboard/profile_edit" method="POST">
@@ -40,14 +39,7 @@
   </div>
 
 <button type="submit" class="btn btn-primary" style="margin-top:30px;">Update</button>
-  </div>
-          <p class="default-style register-infos text-left"><b>Change Password</b></p>
-           <div class="form-group">
-    <label for="phone">Password</label>
-        <input type="password" class="form-control" name="password" id="password" placeholder="New Password" >
-        <input type="password" class="form-control" name="verify_password" id="verify_password" placeholder="Confirm New Password">
-        <button type="submit" class="btn btn-primary" style="margin-top:30px;">Submit Change</button>
-  </div>
+
 
 
 

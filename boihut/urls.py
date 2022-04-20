@@ -36,6 +36,8 @@ from bookstore.views import orders
 from bookstore.views import view_order
 from bookstore.views import view_invoice
 from accounts.views import profile_edit
+from accounts.views import change_pwd
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('',home,name="home"),
@@ -58,6 +60,7 @@ urlpatterns = [
     path('dashboard/profile_edit', profile_edit,name="profile_edit"),
     path("dashboard/view_order/<int:order_id>", view_order, name="view_order"),
     path("dashboard/view_invoice/<int:invoice_id>", view_invoice,name="view_invoice"),
+    path('dashboard/change_pwd', change_pwd,name="change_pwd"),
 
 
 ]+static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
