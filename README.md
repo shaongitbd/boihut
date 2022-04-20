@@ -1,5 +1,5 @@
-<p align="center"><a target="_blank" rel="noopener noreferrer" href="https://github.com/shaongitt/boihut/blob/4678b1b92858fc2d68cc41108b6a40bbd3db808a/git_logo-org.png"><img align="center" src="https://github.com/shaongitt/boihut/raw/4678b1b92858fc2d68cc41108b6a40bbd3db808a/git_logo-org.png" style="width: 90%;height: 203px;max-width: 100%;"></a></p>
-<h1 align="center"><b style="font-weight:800;">BoiHut</b></h2>
+<p align="center"><a target="_blank" rel="noopener noreferrer" href="https://github.com/shaongitt/boihut/blob/4678b1b92858fc2d68cc41108b6a40bbd3db808a/git_logo-org.png"></a></p>
+<h1 align="center"><b style="font-weight:700;">BoiHut</b></h2>
 <p align="center"><b>Online Book Selling Store</b> </p>
 <a href="https://github.com/shaongitt/boihut/stargazers"><img src="https://img.shields.io/github/stars/shaongitt/boihut" alt="Stars Badge"/></a>
 <a href="https://github.com/shaongitt/boihut/members"><img src="https://img.shields.io/github/forks/shaongitt/boihut" alt="Forks Badge"/></a>
