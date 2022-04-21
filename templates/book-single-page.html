@@ -6,16 +6,16 @@
 
     <div class="container" style="padding-top:60px; padding-bottom:20px;">
     <div class="row">
-        <div class="col-4">
+        <div class="col-md-4 col-sm-12">
         <img src="/media/{{book.image}}" style="height: 529px;"/>
         </div>
-        <div class="col-5">
+        <div class="col-md-5">
             <h3 class="book-title-single">{{book.title}} </h3>
             <h4 class="book-price-single mt-3">$ {{book.price}}</h4>
-            <div class="row"><div class="col-2 g-0">
+            <div class="row"><div class="col-3 col-md-2 col-sm-6 g-0">
                 <span class="book-default-single align-items-left"> Author:</span>
             </div>
-                <div class="col g-0"> <span class="book-author">
+                <div class="col-7 col-md-6 g-0"> <span class="book-author">
                 {{book.author}} </span>
                 </div>
             </div>
@@ -42,24 +42,24 @@ Devdas is a young man from wealthy bengali family in India. In the early 1900s. 
             </div>
               </div>
 
-                <div class="row g-0 mt-3"><div class="col-2 g-0">
+                <div class="row g-0 mt-3"><div class="col-3 col-md-2 col-sm-6 g-0">
                 <span class="book-default-single align-items-left">Category:</span>
             </div>
-                <div class="col "> <span class="book-author">
+                <div class="col-6 col-sm-6 g-0"> <span class="book-author">
                 {{book.category}} </span>
                 </div>
             </div>
            <div class="row g-0 mt-3">
-               <div class="col-2 g-0"> <span class="book-default-single align-items-left"> Share:</span>
+               <div class="col-2 col-md-2 g-0"> <span class="book-default-single align-items-left"> Share:</span>
                </div>
-               <div clas="col g-0">
-                   <i class="fa-brands fa-facebook fa-custom"></i> <i class="fa-brands fa-twitter fa-custom"></i>  <i class="fa-brands fa-instagram fa-custom"></i>  <i class="fa-brands fa-pinterest fa-custom"></i>  <i class="fa-brands fa-whatsapp fa-custom"></i>
+               <div class="col-6 col-md-4 g-0">
+                   <a href="https://www.facebook.com/sharer/sharer.php?u={{request.build_absolute_uri }}" target="_blank" rel="noopener"><i class="fa-brands fa-facebook fa-custom"></i></a> <a href="http://twitter.com/intent/tweet/?url={{ request.build_absolute_uri }}" target="_blank" rel="noopener"><i class="fa-brands fa-twitter fa-custom"></i>  </a> <a href="https://instagram.com/?url={{ request.build_absolute_uri }}" target="_blank" rel="noopener"><i class="fa-brands fa-instagram fa-custom"></i> </a> <a href="http://pinterest.com/pin/create/button/?url={{ request.build_absolute_uri }}" target="_blank" rel="noopener"> <i class="fa-brands fa-pinterest fa-custom"></i></a> <a href="whatsapp://send?text={{book.title}} available on {{ request.build_absolute_uri }}" target="_blank" rel="noopener"> <i class="fa-brands fa-whatsapp fa-custom"></i></a>
                </div>
            </div>
 
 
         </div>
-        <div class="col-3" style="margin-top: 83px;">
+        <div class="col-md-3 col-sm-12" style="margin-top: 83px;">
             <p class="text-danger" style="font-size:14px;font-weight:600px;"><b>Feel free to chat with us</b></p>
             <div class="sidebar-style"><i class="fa-solid fa-box"></i> 24 hour Delivery</div>
             <div class="sidebar-style"> <i class="fa-solid fa-truck-clock"></i> Free Shipping</div>
@@ -99,24 +99,34 @@ Devdas is a young man from wealthy bengali family in India. In the early 1900s. 
     <div class="product container">
     <div class="row">
         {%for related_book in related_books%}
-         <div class="product-box col-md-2 col-sm-6">
-              <a class="text-decoration-none" href="/book/{{related_book.slug}}">
-        <img class="product-img" src="{{related_book.image.url}}"/>
-            <h3 class="book-title">{{related_book.title}} </h3>
-            <p class="book-price"><b>{{related_book.price}}</b></p>
+         <div class="product-box col-6 col-md-2">
+             <a class="text-decoration-none" href="/book/{{related_book.slug}}">
+             <img class="product-img" src="{{related_book.image.url}}"/>
+             <h3 class="book-title">{{related_book.title}} </h3>
+             <p class="book-price"><b>{{related_book.price}}</b></p>
 
-            <button class="btn btn-custom"> Buy Now </button>
+             <button class="btn btn-custom"> Buy Now </button>
 
 
 
-              </a></div></div></div>
+              </a>
+
+         </div>
+
+
+
 
 
 
  {%endfor%}
+        </div>
 
 
 
-</div></div></div>
+</div></div>
+
+
+    </div>
+</section>
 
 {%endblock content%}
