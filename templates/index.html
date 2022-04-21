@@ -9,8 +9,8 @@
 </div>
 <div clsss="hero">
 <div class="container">
-<div class="row" style="padding-bottom:40px">
-<div class="col-6 p-0">
+<div class="row " style="padding-bottom:124px">
+<div class="col-md-6 p-0">
     <h1 class="boihut display-4">Buy Your <span class="boihut-favorite">Favorite</span> Books</h1>
 
   <p class="boihut hero-text">Buy your favorite books from our huge list of collection. You will get your product delivered to your doorsteps in 24 hours. </p>
@@ -20,8 +20,8 @@
   </p>
 </div>
 
-<div class="col-4">
-    <img src="{%static 'images/hero.png'%}"/>
+<div class="col-12 col-md-4">
+    <img class="img-fluid" src="{%static 'images/hero.png'%}"/>
 
 </div>
 </div></div>
@@ -34,11 +34,11 @@
 
 <div class="container ms-auto">
     <div class="row" style="margin-top:-90px;background:#FFFFFF;">
-        <h3 class="text-front-page text-center pt-3">Books </h3>
+        <h3 class="text-front-page text-center pt-3 ">Books </h3>
     {%for book in books%}
 
 
-         <div class="product-box col-md-2 col-sm-6">
+         <div class="product-box col-6 col-md-2 mb-sm-4">
              <a class="text-decoration-none" href="book/{{book.slug}}">
            <img class="product-img" src="{{book.image.url}}"/>
             <h3 class="book-title">{{book.title}} </h3>

@@ -169,15 +169,7 @@ margin-top:6px;
     margin:0 auto;
 }
 
-.row .col-md-2 {
-    display: inline-block;
-    vertical-align: middle;
-    float: none;
-    margin-left: 15px;
-    margin-right: 15px;
-    margin-bottom: 30px;
-    margin-top: 30px;
-}
+
 .product-img{
 
 width:141px;
@@ -845,4 +837,9 @@ line-height: 33px;
 
 
 color: #767676;
+}
+
+.img-fluid {
+    max-width: 110%;
+    height: auto;
 }
