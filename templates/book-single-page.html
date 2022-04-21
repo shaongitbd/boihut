@@ -3,57 +3,96 @@
 {%load static%}
 <title>Buy {{book.title}} by {{book.author}} </title>
 <section>
-<div class="product-page-hero">
+
     <div class="container" style="padding-top:60px; padding-bottom:20px;">
     <div class="row">
+        <div class="col-4">
+        <img src="/media/{{book.image}}" style="height: 529px;"/>
+        </div>
+        <div class="col-5">
+            <h3 class="book-title-single">{{book.title}} </h3>
+            <h4 class="book-price-single mt-3">$ {{book.price}}</h4>
+            <div class="row"><div class="col-2 g-0">
+                <span class="book-default-single align-items-left"> Author:</span>
+            </div>
+                <div class="col g-0"> <span class="book-author">
+                {{book.author}} </span>
+                </div>
+            </div>
+            <p class="book-short-desc-single mt-3 g-0">
+Devdas is a young man from wealthy bengali family in India. In the early 1900s. Parvati is a young woman froma  middle class Bengali Brahmin Famlly
+            </p>
+
+            <div class="row g-0 pt-4">
+            <div class="col">
 
 
-    <div class="col-md-3 col-xs-6" >
-    <img class="product-img-single" src="{{book.image.url}}" />
 
-    </div>
-
-    <div class="col-md-5 col-xs-6" style="margin-top:20px">
-
-        <div class="product-card">
-        <h3 class="product-title"> {{book.title}} </h3>
-        <p class="product-cat"> Category: {{book.category}} </p>
-            <p class="product-cat"> Author: {{book.author}} </p>
-            <p class="product-cat"> Sock: {{book.stocks}} </p>
-        <div class="row">
-            <div class="product-price-custom col-md-2" style="margin-bottom: 8px;">  <p class="product-price text-left">
-                {{book.price}}</p></div>
-
-            {% if book.stocks <= 0%}
-              <button class="product-buy-button btn-disabled"> Out of Stock</button>
+              {% if book.stocks <= 0%}
+              <button class="btn boihut-addnow-btn btn-disabled"> Out of Stock</button>
               {%elif book.stocks_available is False%}
                <h3 class="color-red">Product Not Available</h3>
 
               {% else %}
-             <a href="{%url 'add_cart' book.slug%}" > <button class="btn product-buy-button">  Buy Now</button> </a>
+              <a href="{%url 'add_cart' book.slug%}" class="btn boihut-addnow-btn" >Add to cart</a>
               {%endif%}
 
 
 
-        </div>
-    </div>
-        </div>
+            </div>
+              </div>
 
+                <div class="row g-0 mt-3"><div class="col-2 g-0">
+                <span class="book-default-single align-items-left">Category:</span>
+            </div>
+                <div class="col "> <span class="book-author">
+                {{book.category}} </span>
+                </div>
+            </div>
+           <div class="row g-0 mt-3">
+               <div class="col-2 g-0"> <span class="book-default-single align-items-left"> Share:</span>
+               </div>
+               <div clas="col g-0">
+                   <i class="fa-brands fa-facebook fa-custom"></i> <i class="fa-brands fa-twitter fa-custom"></i>  <i class="fa-brands fa-instagram fa-custom"></i>  <i class="fa-brands fa-pinterest fa-custom"></i>  <i class="fa-brands fa-whatsapp fa-custom"></i>
+               </div>
+           </div>
+
+
+        </div>
+        <div class="col-3" style="margin-top: 83px;">
+            <p class="text-danger" style="font-size:14px;font-weight:600px;"><b>Feel free to chat with us</b></p>
+            <div class="sidebar-style"><i class="fa-solid fa-box"></i> 24 hour Delivery</div>
+            <div class="sidebar-style"> <i class="fa-solid fa-truck-clock"></i> Free Shipping</div>
+            <div class="sidebar-style"><i class="fa-solid fa-arrow-rotate-left"></i> 30 Days Refund</div>
+        </div>
     </div>
+
+        <div class="row" style="margin-top:53px"><div class="col-9">
+            <ul class="nav nav-tabs" id="myTab" role="tablist">
+  <li class="nav-item" role="presentation">
+    <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Summary </button> <hr>
+  </li>
+  <li class="nav-item" role="presentation">
+    <button class="nav-link" id="profile-tab" data-bs-toggle="tab" data-bs-target="#profile" type="button" role="tab" aria-controls="profile" aria-selected="false">Others</button>
+  </li>
+</ul>
+<div class="tab-content" id="myTabContent">
+  <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab"><p class="description">{{book.description}}
+
+</p></div>
+
+</div></div>
+    </div>
+
+
+
 </div>
-</section>
 
-<div class="container" style="margin-top:60px;">
-    <div clas="row">
-    <h4> Summary: </h4>
-    <p class="product-des"> {{book.description}}.</p>
 
-    </div></div>
+
 <div class="container" style="margin-top:70px;">
     <div class="row text-center">
-    <h4 style="
-    margin-bottom: 33px;
-    align-items: center;"> Related Books </h4>
+    <h3 class="text-front-page  pt-3">Related Books </h3>
 
     </div>
 
@@ -70,7 +109,7 @@
 
 
 
-        </a></div>
+              </a></div></div></div>
 
 
 
