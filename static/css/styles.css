@@ -729,3 +729,10 @@ padding: 10px 4px;
 .page-item.active .page-link{
 border-color: #6a9d42;
 }
+
+.card .card-dashboard{
+color: red;
+padding: 8px 0px;
+ font-size: 15px;
+
+}

@@ -67,9 +67,9 @@ def search_result(request):
 def orders(request):
         if request.user.is_authenticated:
             user = Account.objects.get(email=request.user.email)
-            order_id = order.objects.all().filter(client=user)
+            order_id = order.objects.all().filter(client=user).order_by('date_created')
 
-            all_orders = Paginator(order.objects.all().filter(client=user), 10)
+            all_orders = Paginator(order.objects.all().filter(client=user).order_by('-date_created'), 10)
             page = request.GET.get('page')
 
             try:
