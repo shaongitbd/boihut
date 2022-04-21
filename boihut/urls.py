@@ -44,6 +44,7 @@ urlpatterns = [
     path('contact',contact),
     path('about',about),
     path('category/<slug:cat_slug>/',category),
+    path('category/',category),
     path('book/<slug:single_book_slug>', single_book),
     path('cart/', cart,name = 'cart'),
     path('add_to_cart/<str:user_book>', add_to_cart,name="add_cart"),

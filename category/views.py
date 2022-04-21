@@ -2,14 +2,19 @@ from django.shortcuts import render,get_object_or_404
 from bookstore.models import Book
 from .models import Category
 from django.core.paginator import Paginator,PageNotAnInteger, EmptyPage
+from category.models import Category
 
-
-categories_list = Category.objects.all()
 
 
 def category(request, cat_slug=None):
-    categories = None
-    all_books = Paginator(Book.objects.all(),20)
+    cat_name = None
+    if cat_slug is None:
+        all_books = Paginator(Book.objects.all().order_by('-modified_on'),20)
+    else:
+        print(cat_slug)
+        cat = Category.objects.get(slug=cat_slug)
+        all_books = Paginator(Book.objects.all().filter(category=cat).order_by('-modified_on'),20)
+
     page = request.GET.get('page')
 
     try:
@@ -21,8 +26,6 @@ def category(request, cat_slug=None):
 
     context = {
         'books': books,
-        'categories_list': categories_list
-
     }
     return render(request,'books-cat.html', context)
 
