@@ -2,15 +2,12 @@
 
 {%block content%}
 {%load static%}
-    <div class="row">
-
-        <h4 class="category-title text-center" style="font-family:Poppins; font-weight:600;"> Books > {{books.category_name}} </h4>
 
 
-    </div>
-    <hr class="align:center"/>
 
-<div class="container ms-auto" style="margin-top:50px;">
+<div class="container ms-auto" style="margin-top:80px;">
+     <h3 class="default-style"> {{category_name}}</h3><hr>
+
     <div class="row">
 
     {%for book in books%}

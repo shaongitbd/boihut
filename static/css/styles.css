@@ -736,3 +736,113 @@ padding: 8px 0px;
  font-size: 15px;
 
 }
+
+.text-front-page{
+    margin-top:20px;
+    color: #3F3F3F;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    font-weight: 700;
+    font-size: 23px;
+    font-family: 'Poppins';
+    color:#3F3F3F
+}
+
+
+.book-title-single{
+font-weight: 600;
+font-size: 24px;
+margin-top:20px;
+line-height: 34px;
+    font-family:Roboto;
+    color: #111111;
+
+}
+
+.book-price-single{
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 600;
+font-size: 18px;
+line-height: 23px;
+color: #FD2121;
+
+}
+
+.book-short-desc-single{
+
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 21px;
+color: #767676;
+
+
+}
+
+.book-author{
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 20px;
+
+color: #767676;
+
+}
+
+.book-default-single{
+
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 500;
+font-size: 16px;
+line-height: 20px;
+
+color: #222222
+}
+
+boihut-book-addnow-input{
+width: 141.89px;
+height: 46.98px;
+
+}
+
+.boihut-addnow-btn {
+
+    color: white;
+    font-weight: 500;
+    justify-content:center;
+    align-content: center;
+    padding: 12px 98px;
+    background: linear-gradient(0deg, rgba(23, 134, 40, 0.2), rgba(23, 134, 40, 0.2)), #73AA47;
+}
+
+.fa-custom{
+font-size:25px;
+color:#609A32;
+padding:2px;
+
+}
+
+.sidebar-style{
+padding: 8px 0px;
+font-size: 16px;
+font-weight: 500;
+font-family: Roboto;
+color: #222222;
+}
+
+.description{
+margin-top:40px;
+font-family: 'Roboto';
+font-style: normal;
+font-weight: 400;
+font-size: 16px;
+line-height: 33px;
+/* or 228% */
+
+
+color: #767676;
+}
