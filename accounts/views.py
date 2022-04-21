@@ -5,6 +5,7 @@ from django.contrib.auth import authenticate
 from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from cart.models import Cart
+from checkout.models import order
 # Create your views here.
 
 special_char_list = r"!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
@@ -152,10 +153,14 @@ def logout(request):
 
 @login_required(login_url="/login")
 def account_home(request):
+    user = Account.objects.get(email=request.user.email)
+    orders = order.objects.all().filter(client=user).order_by('date_created')[:4]
+
     if request.user.is_authenticated:
         context={
             'first_name': request.user.first_name,
             'last_name': request.user.last_name,
+            'order_id_list' : orders,
         }
         return render(request, "dashboard.html",context=context)
     else:

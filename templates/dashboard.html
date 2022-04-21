@@ -1,24 +1,48 @@
-{%extends 'base.html'%}
-
+{%extends 'dashboard-base.html'%}
 {%load static%}
 
 {%block content%}
-<title> User Dashboard</title>
 
+ <div class="row" >
 {%include 'dashboard-menu.html'%}
-    <div class="col-6">
-      <div class="tab-pane fade {%if request.path == '/dashboard/'%}show active{%endif%}" id="list-dashboard" role="tabpanel" aria-labelledby="list-dashboard">
+ <div class="tab-content col-9 " style="margin-top:60px;margin-left:30px;margin-right:20px">
+<h3 class="default-style"> User Dashboard </h3><hr>
+
+ <div class="row">
+         <div class="col-3 ">
+            <div class="card card-dashboard">
+                <div class="row align-items-center"><div class="col"><i class="fa fa-user fa-3x"></i></div>
+                   <div class="col"> Total Orders</h5>
+                    <p class="card-text"> 20000 </p> </div> </div>
+             </div></div>
+
+      <div class="col-3">
+            <div class="card card-dashboard">
+                <div class="row align-items-center"><div class="col"><i class="fa fa-user fa-3x"></i></div>
+                   <div class="col"> Total Orders</h5>
+                    <p class="card-text"> 20000 </p> </div> </div>
+             </div></div>
+
+      <div class="col-3">
+            <div class="card card-dashboard">
+                <div class="row align-items-center"><div class="col"><i class="fa fa-user fa-3x"></i></div>
+                   <div class="col"> Total Orders</h5>
+                    <p class="card-text"> 20000 </p> </div> </div>
+             </div></div>
+
+     <div class="col-3">
+            <div class="card card-dashboard">
+                <div class="row align-items-center"><div class="col"><i class="fa fa-user fa-3x"></i></div>
+                   <div class="col"> Total Orders</h5>
+                    <p class="card-text"> 20000 </p> </div> </div>
+             </div></div>
+            </div>
 
 
-        Hello, {{first_name}} {{last_name}} . Hope you are having a good day? Looking for your orders take a look at order page. You can also edit your account information or change your password from the left menu </div>
 
 
 
-    <div class="tab-pane fade  {%if 'orders' in request.path%}show active{%endif%}" id="list-orders" role="tabpanel" aria-labelledby="list-orders"> Here is your recent orders
-
-    <div class="tab-content" id="nav-tabContent">
-      {%include 'messages.html' %}
-
+     <p class="default-style" style="margin-top:30px">You recent orders (last 4)</p>
       <table class="table table-hover">
   <thead>
     <tr>
@@ -40,69 +64,9 @@
   {%endfor%}
 
   </tbody>
-</table>
-        </div>
-      </div>
-
-
-
-      <div class="tab-panel fade {%if 'profile_edit' in request.path%} show{%endif%}" id="list-edit-profile" role="tabpanel" aria-labelledby="list-edit-profile">
-      {%include 'messages.html' %}
-          <p class="text-center">Edit your account Information</p>
-
-      <div class="row">
-          <form action="/dashboard/profile_edit" method="POST">
-        {%csrf_token%}
-   <div class="form-group ">
-    <label for="first_name">First name</label>
-    <input type="text" value="{{request.user.first_name}}" class="form-control" name="first_name" id="first_name" aria-describedby="FirstNameHelp" placeholder="Enter Your First Name" required>
-  </div>
-<div class="form-group">
-    <label for="last_name">Last Name </label>
-    <input type="text" value="{{request.user.last_name}}" class="form-control" name="last_name" id="last_name" aria-describedby="LastNameHelp" placeholder="Enter Your Last Name" required>
-  </div>
-
-    <div class="form-group">
-    <label for="Email">Email</label>
-    <input type="email" value="{{request.user.email}}" class="form-control" name="email" id="email" aria-describedby="emailHelp" placeholder="Enter Your Email Address" required>
-  </div>
-
-
- <div class="form-group">
-    <label for="phone">Phone Number</label>
-    <input type="text" value="{{request.user.phone}}" class="form-control" name="phone" id="phone" placeholder="Enter Your Phone Number" required>
-  </div>
-
-<button type="submit" class="btn btn-primary" style="margin-top:30px;">Update</button>
-  </div>
-          <p class="text-center">Change Password</p>
-           <div class="form-group">
-    <label for="phone">Password</label>
-        <input type="password" class="form-control" name="password" id="password" placeholder="New Password" >
-        <input type="password" class="form-control" name="verify_password" id="verify_password" placeholder="Confirm New Password">
-        <button type="submit" class="btn btn-primary" style="margin-top:30px;">Submit Change</button>
-  </div>
-
-
-
-
-      </div>
-
-
-
-
-    </div>
-  </div>
-
+      </table>
 
 </div>
 
 
-    </div>
-    </div>
-</div>
-</section>
-<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
-
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
 {%endblock content%}
