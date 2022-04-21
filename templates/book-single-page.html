@@ -53,7 +53,7 @@ Devdas is a young man from wealthy bengali family in India. In the early 1900s. 
                <div class="col-2 col-md-2 g-0"> <span class="book-default-single align-items-left"> Share:</span>
                </div>
                <div class="col-6 col-md-4 g-0">
-                   <i class="fa-brands fa-facebook fa-custom"></i> <i class="fa-brands fa-twitter fa-custom"></i>  <i class="fa-brands fa-instagram fa-custom"></i>  <i class="fa-brands fa-pinterest fa-custom"></i>  <i class="fa-brands fa-whatsapp fa-custom"></i>
+                   <a href="https://www.facebook.com/sharer/sharer.php?u={{request.build_absolute_uri }}" target="_blank" rel="noopener"><i class="fa-brands fa-facebook fa-custom"></i></a> <a href="http://twitter.com/intent/tweet/?url={{ request.build_absolute_uri }}" target="_blank" rel="noopener"><i class="fa-brands fa-twitter fa-custom"></i>  </a> <a href="https://instagram.com/?url={{ request.build_absolute_uri }}" target="_blank" rel="noopener"><i class="fa-brands fa-instagram fa-custom"></i> </a> <a href="http://pinterest.com/pin/create/button/?url={{ request.build_absolute_uri }}" target="_blank" rel="noopener"> <i class="fa-brands fa-pinterest fa-custom"></i></a> <a href="whatsapp://send?text={{book.title}} available on {{ request.build_absolute_uri }}" target="_blank" rel="noopener"> <i class="fa-brands fa-whatsapp fa-custom"></i></a>
                </div>
            </div>
 
