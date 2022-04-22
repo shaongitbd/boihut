@@ -17,6 +17,7 @@ Demo: http://boihut.biz
 <h3 align="left"> Features</p></h3>
 
 <ul>
+<li style="font-weight:normal;">Front Page</li>
 <li style="font-weight:normal;">Books by Category</li>
 <li>Single Book Page</li>
 <li>User Login and Registration</li>
