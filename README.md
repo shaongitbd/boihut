@@ -28,7 +28,8 @@ Demo: http://boihut.biz
 
 <h3 align="left"> Screenshots </p></h3>
 <p class="left">Home</p>
- Home
-<img src="https://github.com/shaongitt/boihut/blob/master/Screenshots/New%20Version/home.png?raw=true" alt="Home"/></a>
-
 <img src="https://github.com/shaongitt/boihut/blob/master/Screenshots/New%20Version/home.png?raw=true" alt="Single Page"/></a>
+<p class="left">Login</p>
+<img src="https://github.com/shaongitt/boihut/blob/master/Screenshots/New%20Version/login.png?raw=true" alt="Single Page"/></a>
+<p class="left">Register</p>
+<img src="https://github.com/shaongitt/boihut/blob/master/Screenshots/New%20Version/registration.png?raw=true" alt="Single Page"/></a>
