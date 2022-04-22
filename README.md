@@ -62,3 +62,9 @@ python manage.py createsuperuser
 <img src="https://github.com/shaongitt/boihut/blob/master/Screenshots/New%20Version/registration.png?raw=true" alt="Registration"/></a>
 <p class="left">Dashboard</p>
 <img src="https://github.com/shaongitt/boihut/blob/master/Screenshots/New%20Version/dashboard.png?raw=true" alt="Dashboard"/></a>
+<p class="left">Checkout Page</p>
+<img src="https://github.com/shaongitt/boihut/blob/master/Screenshots/New%20Version/checkout.png?raw=true" alt="Checkout Page"/></a>
+<p class="left">View Order</p>
+<img src="https://github.com/shaongitt/boihut/blob/master/Screenshots/New%20Version/View%20order%20page.png?raw=true" alt="Checkout Page"/></a>
+<p class="left">Edit Profile</p>
+<img src="https://github.com/shaongitt/boihut/blob/master/Screenshots/New%20Version/edit%20profile.png?raw=true" alt="Checkout Page"/></a>
