@@ -22,7 +22,7 @@ STATIC_DIR = os.path.join(BASE_DIR, 'static')
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'r2gp^9w%m%e6g%=k8t)-3#l%uo@yb%_t!hq9eav^u$y&=)))uf'
+SECRET_KEY = 'django-insecure-ow#nai80aww%+bfkq3@k%mgf0@2_hc^#qb8q4=)r0ngm!#50pg'
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
