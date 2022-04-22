@@ -844,4 +844,25 @@ color: #767676;
     height: auto;
 }
 
-.navbar-toggler-icon{}
+.dashboard-col-total{
+    font-size: 16px;
+     font-weight: 600;
+    font-family: sans-serif;
+}
+.card-dashboard-col-total-number{
+    font-size: 18px;
+    font-weight: 700;
+    color: #868686;
+}
+
+.dashboard-card{
+
+    padding-top: 10px;
+    padding-bottom:9px;
+    color: white;
+}
+
+.fa-dashboard{
+    font-size: 56px;
+    color: #fbfff7;
+}

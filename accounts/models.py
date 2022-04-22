@@ -48,8 +48,8 @@ class Account(AbstractBaseUser):
     phone = models.CharField(max_length=100,unique=True)
     email = models.CharField(max_length=100,unique=True)
 
-    registered_on = models.DateTimeField(auto_now=True)
-    last_active = models.DateTimeField(auto_now_add=True)
+    registered_on = models.DateTimeField(auto_now_add=True)
+    last_active = models.DateTimeField(auto_now=True)
     is_active = models.BooleanField(default=True)
     is_admin = models.BooleanField(default=False)
     is_superuser = models.BooleanField(default=False)

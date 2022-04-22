@@ -6,6 +6,8 @@ from django.contrib import auth
 from django.contrib.auth.decorators import login_required
 from cart.models import Cart
 from checkout.models import order
+from datetime import datetime
+import re
 # Create your views here.
 
 special_char_list = r"!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
@@ -21,7 +23,8 @@ def special_char_checker(string):
 
 def email_special_char_checker(string):
     if "@" in string:
-        email = string.split("@", "")
+        email = re.split(r'@+', string)
+        print(email)
         for i in email[0]:
             if i in special_char_list:
                 return True
@@ -69,7 +72,7 @@ def register(request):
             messages.error(request, "Sorry, Username can't contain a special character.")
             return redirect("register")
 
-        if email_special_char_checker(post_username):
+        if email_special_char_checker(post_email):
             messages.error(request, "Sorry, Email can't contain a special character.")
             return redirect("register")
 
@@ -119,13 +122,14 @@ def login(request):
          post_email = request.POST['email']
          post_password = request.POST['password']
          user = auth.authenticate(email=post_email,password=post_password)
-         print(user)
-         print(post_email)
-         print(post_password)
          if user is not None:
+
              auth.login(request, user)
              session_new = request.session.session_key
              try:
+               act =Account.objects.get(email=post_email)
+               act.last_active = datetime.now()
+               act.save()
                cart = Cart.objects.all().filter(cart_session=session_old)
                cart.update(cart_session = session_new)
              except:
@@ -155,12 +159,24 @@ def logout(request):
 def account_home(request):
     user = Account.objects.get(email=request.user.email)
     orders = order.objects.all().filter(client=user).order_by('date_created')[:4]
-
+    total_oders = len(order.objects.all().filter(client=user).order_by('date_created'))
+    dilevered_orders = len(order.objects.all().filter(client=user,order_status="COMPLETED"))
+    print(total_oders)
+    print(dilevered_orders)
+    registered_on = user.registered_on
+    registered_on = datetime.fromisoformat(str(registered_on)).strftime("%d/%m/%Y")
+    last_login = user.last_active
+    last_login = datetime.fromisoformat(str(last_login)).strftime("%d/%m/%Y")
     if request.user.is_authenticated:
         context={
             'first_name': request.user.first_name,
             'last_name': request.user.last_name,
             'order_id_list' : orders,
+            'total_orders':total_oders,
+            'registered_on':registered_on,
+            'dilevered_orders':dilevered_orders,
+            'last_login':last_login,
+
         }
         return render(request, "dashboard.html",context=context)
     else:
@@ -182,25 +198,25 @@ def profile_edit(request):
 
             if num_checker(first_name) == True:
                 messages.error(request, "Sorry, First Name can't contain number.")
-                return redirect("register")
+                return redirect("profile_edit")
 
             if num_checker(last_name) == True:
                 messages.error(request, "Sorry, Last Name can't contain number.")
-                return redirect("register")
+                return redirect("profile_edit")
 
             # Checking for special character
 
             if special_char_checker(first_name):
                 messages.error(request, "Sorry, First Name can't contain a special character.")
-                return redirect("register")
+                return redirect("profile_edit")
 
             if special_char_checker(last_name):
                 messages.error(request, "Sorry, Last Name can't contain a special character.")
-                return redirect("register")
+                return redirect("profile_edit")
 
             if email_special_char_checker(email):
                 messages.error(request, "Sorry, Email can't contain a special character.")
-                return redirect("register")
+                return redirect("profile_edit")
 
 
 
