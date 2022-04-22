@@ -9,8 +9,9 @@
 <a href="https://github.com/shaongitt/boihut/blob/master/LICENSE"><img src="https://img.shields.io/github/license/abhisheknaiidu/shaongitt/boihut" alt="License Badge"/></a>
 
 <h3 align="left"> Background: </h3>
-<p align="left"> <b>Boihut</b> is a a ecommerce book store built in Django as a first year university project By <b> Siam. It's project aimed to increase my knowledge about django and python overall.
+<p align="left"> <b>Boihut</b> is a a ecommerce book store built in Django as a first year university project By <b> me. It's project aimed to increase my knowledge about django and python overall.
 
+Demo: http://boihut.biz
 <h3 align="left"> Features</p></h3>
 
 <ul>
@@ -23,6 +24,11 @@
 </ul>
 
 <h3 align="left">License: </h4>
-<p class="left">Warning: This project is licensed Under BSD-2 so use with proper credits.
+<p class="left">Warning: This project is licensed Under BSD-2 so use with proper credits.</p>
 
+<h3 align="left"> Screenshots </p></h3>
+<p class="left">Home</p>
+ Home
+<img src="https://github.com/shaongitt/boihut/blob/master/Screenshots/New%20Version/home.png?raw=true" alt="Home"/></a>
 
+<img src="https://github.com/shaongitt/boihut/blob/master/Screenshots/New%20Version/home.png?raw=true" alt="Single Page"/></a>
