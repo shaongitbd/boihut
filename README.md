@@ -7,6 +7,7 @@
 <a href="https://github.com/shaongitt/boihut/issues"><img src="https://img.shields.io/github/issues/shaongitt/boihut" alt="Issues Badge"/></a>
 <a href="https://github.com/shaongitt/boihut/graphs/contributors"><img alt="GitHub contributors" src="https://img.shields.io/github/contributors/shaongitt/boihut"></a>
 <a href="https://github.com/shaongitt/boihut/blob/master/LICENSE"><img alt="PyPI - License" src="https://img.shields.io/pypi/l/Django"></a>
+<img alt="GitHub all releases" src="https://img.shields.io/github/downloads/shaongitt/boihut/total">
 
 <h3 align="left"> Background: </h3>
 <p align="left"> <b>Boihut</b> is a a ecommerce book store built in Django as a first year university project By <b> me. It's project aimed to increase my knowledge about django and python overall.
