@@ -2,8 +2,7 @@
 <h1 align="center"><b style="font-weight:700;">BoiHut</b></h2>
 <p align="center"><b>Online Book Selling Store (Django)</b> </p>
 
-<a href="https://github.com/shaongitt/boihut/stargazers"><img src="https://img.shields.io/github/stars/shaongitt/boihut" alt="Stars Badge"/></a>
-
+<a href="https://github.com/shaongitt/boihut/stargazers"><img src="https://img.shields.io/github/forks/shaongitt/boihut" alt="Stars Badge"/></a>
 <a href="https://github.com/shaongitt/boihut/members"><img src="https://img.shields.io/github/forks/shaongitt/boihut" alt="Forks Badge"/></a>
 <a href="https://github.com/shaongitt/boihut/pulls"><img src="https://img.shields.io/github/issues-pr/shaongitt/boihut" alt="Pull Requests Badge"/></a>
 <a href="https://github.com/shaongitt/boihut/issues"><img src="https://img.shields.io/github/issues/shaongitt/boihut" alt="Issues Badge"/></a>
