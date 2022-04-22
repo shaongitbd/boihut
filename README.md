@@ -25,6 +25,29 @@ Demo: http://boihut.biz
 <li>User Dashboard(View Order, edit profile)</li>
 </ul>
 
+<h2 align="left"> Installation:</h2>
+<h4>Step 1: clone the repo <br></h4>
+<h4>Step 2: install python and pip<br></h4>
+<h4>Step 3: install required liberies <br> </h4>
+
+```python
+pip install -r requirements.txt
+```
+
+<h4> 4. Step 4: Run migrations and create a db. from cmd type </h4>
+
+```python
+python manage.py makemigrations
+python manage.py migrate
+python manage.py migrate --run-syncdb
+```
+
+<h4> Step 5: create an admin account</h4>
+
+```python
+python manage.py createsuperuser
+```
+
 <h3 align="left">License: </h4>
 <p class="left">Warning: This project is licensed Under BSD-2 so use with proper credits.</p>
 
