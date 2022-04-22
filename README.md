@@ -1,6 +1,6 @@
 <p align="center"><a target="_blank" rel="noopener noreferrer" href="https://github.com/shaongitt/boihut/blob/4678b1b92858fc2d68cc41108b6a40bbd3db808a/git_logo-org.png"></a></p>
 <h1 align="center"><b style="font-weight:700;">BoiHut</b></h2>
-<p align="center"><b>Online Book Selling Store (Django)</b> </p>
+<p align="center"><b> Ecommcerce Book Store made using Django</b> </p>
 
 <a href="https://github.com/shaongitt/boihut/stargazers"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/shaongitt/boihut?style=social"></a>
 <a href="https://github.com/shaongitt/boihut/pulls"><img src="https://img.shields.io/github/issues-pr/shaongitt/boihut" alt="Pull Requests Badge"/></a>
