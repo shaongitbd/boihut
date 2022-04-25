@@ -1,7 +1,7 @@
 from django.db import models
 from category.models import Category
 
-# Create your models here.
+
 class Book(models.Model):
     title = models.CharField(max_length=150,unique=True)
     slug = models.SlugField(max_length=60, unique=True)
