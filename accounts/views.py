@@ -8,6 +8,7 @@ from cart.models import Cart
 from checkout.models import order
 from datetime import datetime
 import re
+
 # Create your views here.
 
 special_char_list = r"!\"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
@@ -235,4 +236,22 @@ def profile_edit(request):
 
 
 def change_pwd(request):
-    return render(request,"change_password.html")
+    if request.POST:
+        password = request.POST['password']
+        confirm_password = request.POST['verify_password']
+        old_password = request.POST['old_password']
+        if password == confirm_password:
+            user = Account.objects.get(email=request.user.email)
+            if user.check_password(old_password):
+              user.set_password(password)
+              user.save()
+              messages.success(request,"Your Password has been successfully chanaged.")
+              return redirect("login")
+            else:
+              messages.error(request, "Sorry, your old password doesn't match our record.")
+              return redirect("change_pwd")
+        else:
+           messages.error(request, "Sorry your password and verify password doesn't match.")
+           return redirect("change_pwd")
+    else:
+      return render(request,"change_password.html")
