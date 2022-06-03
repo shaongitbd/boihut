@@ -11,8 +11,7 @@
 
 <h3 align="left"> Background: </h3>
 <p align="left"> <b>Boihut</b> is a a ecommerce book store built in Django as a first year university project By <b> me. It's project aimed to increase my knowledge about django and python overall.
-
-Demo: http://boihut.biz
+  
 <h3 align="left"> Features</p></h3>
 
 <ul>
