@@ -1,3 +1,4 @@
+<meta name="google-site-verification" content="E7MAyi83JwKT6d6L3vWQCFB5XAPCJrrRpsnqv8osmKY" />
 <p align="center"><a target="_blank" rel="noopener noreferrer" href="https://github.com/shaongitt/boihut/blob/4678b1b92858fc2d68cc41108b6a40bbd3db808a/git_logo-org.png"></a></p>
 <h1 align="center"><b style="font-weight:700;">BoiHut - Django</b></h2>
 <p align="center"><b> Ecommerce website built with Django Framework. </b> </p>
