@@ -1,6 +1,6 @@
 <p align="center"><a target="_blank" rel="noopener noreferrer" href="https://github.com/shaongitt/boihut/blob/4678b1b92858fc2d68cc41108b6a40bbd3db808a/git_logo-org.png"></a></p>
-<h1 align="center"><b style="font-weight:700;">BoiHut</b></h2>
-<p align="center"><b> Ecommcerce Book Store made using Django</b> </p>
+<h1 align="center"><b style="font-weight:700;">BoiHut - Django</b></h2>
+<p align="center"><b> Ecommerce website built with Django Framework. </b> </p>
 
 <a href="https://github.com/shaongitt/boihut/stargazers"><img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/shaongitt/boihut?style=social"></a>
 <a href="https://github.com/shaongitt/boihut/pulls"><img src="https://img.shields.io/github/issues-pr/shaongitt/boihut" alt="Pull Requests Badge"/></a>
@@ -10,7 +10,7 @@
 <img alt="GitHub Forks" src="https://img.shields.io/github/forks/shaongitt/boihut?style=social">
 
 <h3 align="left"> Background: </h3>
-<p align="left"> <b>Boihut</b> is a a ecommerce book store built in Django as a first year university project By <b> me. It's project aimed to increase my knowledge about django and python overall.
+<p align="left"> <b>Boihut</b> is a a  book store built in Django as a first year university project. This project was aimed to increase my knowledge about django and python overall.
   
 <h3 align="left"> Features</p></h3>
 
