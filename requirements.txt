@@ -1,6 +1,6 @@
-Django==3.2.11
-django-mathfilters==1.0.0
-regex==2020.11.13
-requests==2.25.1
-Pillow==8.0.1
-whitenoise==6.0.0
+Django
+django-mathfilters
+regex
+requests
+Pillow
+whitenoise
